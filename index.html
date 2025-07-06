@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Prudhvi | AI/ML Engineer</title>
+    <title>Sai Prudhvi Bodempudi | AI/ML Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-primary: #0a0a0a;
@@ -1338,7 +1339,7 @@
                 <h1>Sai Prudhvi.</h1>
                 <h3 class="typing-text">I'm a <span class="dynamic-text"></span><span class="cursor">|</span></h3>
                 <p class="bio-short">A passionate 2025 undergraduate specializing in AI/ML, dedicated to building intelligent systems and solving real-world challenges through innovative machine learning solutions.</p>
-                
+
                 <div class="hero-buttons">
                     <a href="#projects" class="btn primary-btn">My Work <i class="fas fa-arrow-right"></i></a>
                     <a href="/path/to/your/cv.pdf" download class="btn secondary-btn">Download CV <i class="fas fa-download"></i></a>
@@ -1624,8 +1625,10 @@
                 }
 
                 let currentActive = '';
+                // Adjust offset by header height to activate link earlier
+                const headerHeight = header.offsetHeight;
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - header.offsetHeight - 50; // Adjust offset
+                    const sectionTop = section.offsetTop - headerHeight - 50; // Add some padding
                     const sectionBottom = sectionTop + section.offsetHeight;
                     if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
                         currentActive = section.getAttribute('id');
@@ -1656,8 +1659,15 @@
 
             menuToggle.addEventListener('click', () => {
                 navbar.classList.toggle('active');
-                menuToggle.querySelector('i').classList.toggle('fa-bars');
-                menuToggle.querySelector('i').classList.toggle('fa-times');
+                // Toggle between bars and times icon
+                const icon = menuToggle.querySelector('i');
+                if (navbar.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             });
 
             // Close mobile menu when a link is clicked
@@ -1681,21 +1691,21 @@
             let roleIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
+            let typingSpeed = 150; // Define globally for potential reuse
+            let deleteSpeed = 100;
+            const delayBetweenRoles = 2000;
 
             function typeWriter() {
                 const currentRole = roles[roleIndex];
-                let displaySpeed = 150; // Typing speed
-                let deleteSpeed = 100; // Deleting speed
-                const delayBetweenRoles = 2000; // Delay before typing next role
+                let currentSpeed = typingSpeed;
 
                 if (isDeleting) {
                     dynamicTextSpan.textContent = currentRole.substring(0, charIndex - 1);
                     charIndex--;
-                    displaySpeed = deleteSpeed;
+                    currentSpeed = deleteSpeed;
                 } else {
                     dynamicTextSpan.textContent = currentRole.substring(0, charIndex + 1);
                     charIndex++;
-                    displaySpeed = typingSpeed;
                 }
 
                 if (!isDeleting && charIndex === currentRole.length) {
@@ -1705,7 +1715,7 @@
                     roleIndex = (roleIndex + 1) % roles.length;
                 }
 
-                setTimeout(typeWriter, displaySpeed);
+                setTimeout(typeWriter, currentSpeed);
             }
 
             typeWriter(); // Start the typing animation
@@ -1715,31 +1725,31 @@
             const skillProgressBars = document.querySelectorAll('.progress-bar span');
             const skillsSection = document.getElementById('skills');
 
+            // Store initial widths in data attributes and set to 0 initially
+            skillProgressBars.forEach(bar => {
+                bar.dataset.targetWidth = bar.style.width; // Store original width
+                bar.style.width = '0%'; // Start at 0%
+            });
+
             const animateSkillBars = () => {
                 const sectionRect = skillsSection.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
 
+                // Trigger animation when section is 75% in view
                 if (sectionRect.top < viewportHeight * 0.75 && sectionRect.bottom > 0) {
                     skillProgressBars.forEach(bar => {
-                        // Only set if not already at desired width to avoid re-animation on every scroll
-                        if (bar.style.width === '0px' || bar.style.width === '') {
-                             const targetWidth = bar.dataset.width || bar.style.width; // Store target width in data-attribute if you want
-                            bar.style.width = targetWidth; // Animate to its defined width
+                        // Only animate if not already at target width
+                        if (bar.style.width !== bar.dataset.targetWidth) {
+                            bar.style.width = bar.dataset.targetWidth; // Animate to its defined width
                         }
                     });
                 } else if (sectionRect.top > viewportHeight || sectionRect.bottom < 0) {
-                    // Reset width when out of view, so it animates again on re-entry
+                    // Reset width when completely out of view, so it animates again on re-entry
                     skillProgressBars.forEach(bar => {
                         bar.style.width = '0%';
                     });
                 }
             };
-            // Initial setup for skill bars
-            skillProgressBars.forEach(bar => {
-                bar.dataset.width = bar.style.width; // Store initial width
-                bar.style.width = '0%'; // Start at 0%
-            });
-
             window.addEventListener('scroll', animateSkillBars);
             animateSkillBars(); // Initial check on load
 
@@ -1753,9 +1763,9 @@
             const resizeCanvas = () => {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
-                // Re-initialize particles if needed on resize
-                if (particles.length === 0 || particles.length < 100) { // Ensure minimum particles
-                    particles = [];
+                // Re-initialize particles if the canvas size changes significantly
+                if (particles.length === 0 || particles.length < 100 || Math.abs(particles[0].x - canvas.width / 2) > canvas.width / 2 || Math.abs(particles[0].y - canvas.height / 2) > canvas.height / 2) {
+                    particles = []; // Clear existing particles
                     initParticles();
                 }
             };
@@ -1783,21 +1793,9 @@
 
                     this.opacity -= 0.005; // Fade out
 
-                    if (this.opacity < 0.01) {
-                        // Recycle particle if faded out or out of bounds
+                    // Recycle particle if faded out or out of bounds
+                    if (this.opacity < 0.01 || this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
                         this.x = Math.random() * canvas.width;
-                        this.y = Math.random() * canvas.height;
-                        this.opacity = Math.random() * 0.5 + 0.1;
-                        this.radius = Math.random() * 2 + 1;
-                        this.velocity = {
-                            x: (Math.random() - 0.5) * 0.5,
-                            y: (Math.random() - 0.5) * 0.5
-                        };
-                    }
-
-                    // Boundary checks
-                    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-                         this.x = Math.random() * canvas.width;
                         this.y = Math.random() * canvas.height;
                         this.opacity = Math.random() * 0.5 + 0.1;
                         this.radius = Math.random() * 2 + 1;
@@ -1832,11 +1830,9 @@
 
             const animateParticles = () => {
                 animationFrameId = requestAnimationFrame(animateParticles);
-                ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear entire canvas
-
-                ctx.fillStyle = 'rgba(10, 10, 10, 0.5)'; // Subtle background fill to prevent trails
+                // Draw a semi-transparent rectangle to create a fading trail effect
+                ctx.fillStyle = 'rgba(10, 10, 10, 0.2)'; // Adjust alpha for more/less trail
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-
 
                 particles.forEach(particle => {
                     particle.update();
@@ -1870,10 +1866,8 @@
                     const rotateX = ((y - centerY) / centerY) * 5; // Max 5deg rotation
                     const rotateY = ((x - centerX) / centerX) * -5; // Max -5deg rotation
 
-                    const translateX = ((x - centerX) / centerX) * 5; // Max 5px translate
-                    const translateY = ((y - centerY) / centerY) * 5; // Max 5px translate
-
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(15px)`;
+                    // Adjust shadow to follow tilt
                     card.style.boxShadow = `
                         ${-rotateY * 0.5}px ${rotateX * 0.5}px 30px rgba(0,0,0,0.4),
                         0 0 40px var(--shadow-color)
@@ -1887,7 +1881,7 @@
             });
 
             // 3D Button Hover Effect
-            const buttons = document.querySelectorAll('.btn, .submit-btn');
+            const buttons = document.querySelectorAll('.btn, .submit-btn, .social-icons a, .social-links-contact a'); // Added social icons
 
             buttons.forEach(button => {
                 button.addEventListener('mousemove', (e) => {
@@ -1901,6 +1895,10 @@
                     const rotateX = ((y - centerY) / centerY) * 5; // Max 5deg rotation
                     const rotateY = ((x - centerX) / centerX) * -5; // Max -5deg rotation
 
+                    // Apply the effect. Note: social icons have their own transform on hover in CSS,
+                    // so this might conflict slightly. For now, this is a general application.
+                    // If you want more granular control, you'd check button.classList.contains(...)
+                    // For buttons, let's keep it subtle with translateZ
                     button.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
                     button.style.boxShadow = `
                         ${-rotateY * 0.2}px ${rotateX * 0.2}px 15px rgba(0,0,0,0.3),
@@ -1909,11 +1907,11 @@
                 });
 
                 button.addEventListener('mouseleave', () => {
-                    button.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-                    button.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
+                    // Reset to original CSS-defined transform
+                    button.style.transform = ''; // Let CSS handle base state
+                    button.style.boxShadow = ''; // Let CSS handle base state
                 });
             });
-
         });
     </script>
 </body>
