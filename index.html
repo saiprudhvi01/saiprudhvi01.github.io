@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Prudhvi Bodempudi | AI/ML Engineer</title>
+    <title>Sai Prudhvi | AI/ML Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* CSS Variables for easy theme management */
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #1a1a1a;
-            --card-bg: #2a2a2a;
-            --text-color: #e0e0e0;
-            --heading-color: #f8f8f8;
-            --accent-color-1: #00bcd4; /* Cyan */
-            --accent-color-2: #ffeb3b; /* Yellow */
-            --gradient-start: #00bcd4;
-            --gradient-end: #03a9f4; /* Lighter Blue */
-            --shadow-color: rgba(0, 188, 212, 0.4);
+            --bg-primary: #0a0a0a; /* Deep dark background */
+            --bg-secondary: #1a1a1a; /* Slightly lighter for alternate sections */
+            --card-bg: #2a2a2a; /* Card background */
+            --text-color: #e0e0e0; /* Light grey text */
+            --heading-color: #f8f8f8; /* White heading text */
+            --accent-color-1: #00bcd4; /* Cyan - main accent */
+            --accent-color-2: #ffeb3b; /* Yellow - secondary accent for highlights */
+            --gradient-start: #00bcd4; /* Cyan for gradients */
+            --gradient-end: #03a9f4; /* Lighter Blue for gradients */
+            --shadow-color: rgba(0, 188, 212, 0.4); /* Shadow color based on accent */
             --transition-speed: 0.5s;
-            --card-perspective: 1000px;
+            --card-perspective: 1000px; /* For 3D effects */
             --glow-strength: 0 0 15px var(--accent-color-1), 0 0 30px var(--accent-color-1);
             --border-radius-lg: 15px;
             --border-radius-md: 10px;
         }
 
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -35,6 +37,7 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 62.5%; /* 1rem = 10px for easier scaling */
         }
 
         body {
@@ -45,11 +48,6 @@
             font-size: 1.6rem; /* Base font size */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Base font size for better responsiveness */
-        html {
-            font-size: 62.5%; /* 1rem = 10px */
         }
 
         a {
@@ -86,8 +84,8 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transform-style: preserve-3d; /* For 3D button effect */
-            perspective: var(--card-perspective); /* For 3D button effect */
+            transform-style: preserve-3d;
+            perspective: var(--card-perspective);
         }
 
         .btn i {
@@ -956,8 +954,8 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transform-style: preserve-3d; /* For 3D button effect */
-            perspective: var(--card-perspective); /* For 3D button effect */
+            transform-style: preserve-3d;
+            perspective: var(--card-perspective);
         }
 
         .submit-btn:hover {
@@ -1338,7 +1336,7 @@
                 <p class="greeting">Hello, I'm</p>
                 <h1>Sai Prudhvi.</h1>
                 <h3 class="typing-text">I'm a <span class="dynamic-text"></span><span class="cursor">|</span></h3>
-                <p class="bio-short">A passionate 2025 undergraduate specializing in AI/ML, dedicated to building intelligent systems and solving real-world challenges through innovative machine learning solutions.</p>
+                <p class="bio-short">A passionate 2025 undergraduate specializing in **AI/ML**, dedicated to building intelligent systems and solving real-world challenges through innovative machine learning solutions.</p>
 
                 <div class="hero-buttons">
                     <a href="#projects" class="btn primary-btn">My Work <i class="fas fa-arrow-right"></i></a>
@@ -1352,7 +1350,7 @@
             </div>
             <div class="hero-image-container">
                 <div class="profile-glow-border">
-                    <img src="https://via.placeholder.com/400" alt="Sai Prudhvi Profile Picture">
+                    <img src="https://via.placeholder.com/400/0a0a0a/00bcd4?text=Your+Photo" alt="Sai Prudhvi Profile Picture">
                 </div>
             </div>
         </div>
@@ -1366,9 +1364,9 @@
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="https://via.placeholder.com/350" alt="About Me Image"> </div>
+                    <img src="https://via.placeholder.com/350/1a1a1a/ffeb3b?text=About+Me" alt="About Me Image"> </div>
                 <div class="about-text">
-                    <p>I am Sai Prudhvi, a highly motivated and enthusiastic 2025 undergraduate pursuing a degree in Artificial Intelligence and Machine Learning. My passion lies in exploring the vast potential of AI to create impactful solutions that can revolutionize industries and improve lives.</p>
+                    <p>I am **Sai Prudhvi**, a highly motivated and enthusiastic 2025 undergraduate pursuing a degree in Artificial Intelligence and Machine Learning. My passion lies in exploring the vast potential of AI to create impactful solutions that can revolutionize industries and improve lives.</p>
                     <p>My academic journey has provided me with a strong foundation in core computer science principles, data structures, algorithms, and advanced mathematics. I thrive on hands-on projects, constantly seeking opportunities to apply theoretical knowledge to practical problems.</p>
                     <p>Beyond the classroom, I actively engage in self-learning, online courses, and open-source contributions to stay at the forefront of emerging technologies in AI, deep learning, computer vision, and natural language processing. I am always eager to collaborate on innovative projects and connect with fellow enthusiasts and professionals in the field.</p>
                     <div class="about-stats">
@@ -1446,7 +1444,24 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/007bff/ffffff?text=Sign+Language" alt="Sign Language Detection Project">
+                        <img src="https://via.placeholder.com/400x250/00bcd4/ffffff?text=Health+Care+System" alt="Health Care System Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Health Care System</h3>
+                        <p>A comprehensive system designed to manage patient data, appointments, and medical records, enhancing efficiency in healthcare facilities.</p>
+                        <div class="project-tech-tags">
+                            <span>Python</span><span>Django</span><span>SQL</span><span>Web Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/saiprudhvi01/HEALTH-CARE" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/03a9f4/ffffff?text=Sign+Language" alt="Sign Language Detection Project Image">
                     </div>
                     <div class="project-content">
                         <h3>Sign Language Detection</h3>
@@ -1463,10 +1478,10 @@
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/28a745/ffffff?text=Alzheimer+Disease" alt="Alzheimer Disease Prediction Project">
+                        <img src="https://via.placeholder.com/400x250/ffeb3b/343a40?text=Alzheimer's+Prediction" alt="Alzheimer's Prediction Project Image">
                     </div>
                     <div class="project-content">
-                        <h3>Alzheimer Disease Prediction & Classification</h3>
+                        <h3>Alzheimer's Disease Prediction</h3>
                         <p>Developed a robust machine learning model for early detection and classification of Alzheimer's disease based on medical imaging data.</p>
                         <div class="project-tech-tags">
                             <span>Python</span><span>Scikit-learn</span><span>CNN</span><span>Medical Imaging</span>
@@ -1475,45 +1490,59 @@
                             <a href="https://github.com/saiprudhvi01/Alzheimer-Disease-Prediction-and-Classification" target="_blank" class="project-link">
                                 <i class="fab fa-github"></i> GitHub Repo
                             </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/17a2b8/ffffff?text=Sentiment+Analysis" alt="Sentiment Analysis Project">
-                    </div>
-                    <div class="project-content">
-                        <h3>Social Media Sentiment Analysis</h3>
-                        <p>An NLP project to analyze public sentiment from social media data, providing insights into opinions on specific topics or products.</p>
-                        <div class="project-tech-tags">
-                            <span>Python</span><span>NLTK</span><span>Flask</span><span>Sentiment Analysis</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/saiprudhvi01/project-placeholder-3" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> GitHub Repo
-                            </a>
-                            <a href="#" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            <a href="https://www.kaggle.com/code/adhamtarek147/alzheimer-s-disease-prediction" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Kaggle
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/ffc107/343a40?text=Fraud+Detection" alt="Fraud Detection Project">
+                        <img src="https://via.placeholder.com/400x250/8bc34a/ffffff?text=Sentiment+Analysis" alt="Sentiment Analysis Project Image">
                     </div>
                     <div class="project-content">
-                        <h3>Credit Card Fraud Detection</h3>
-                        <p>Built a robust anomaly detection system to identify fraudulent credit card transactions using various machine learning algorithms.</p>
+                        <h3>Product Review Sentiment Analysis</h3>
+                        <p>An NLP project to analyze public sentiment from product reviews, providing insights into customer opinions and feedback.</p>
                         <div class="project-tech-tags">
-                            <span>Python</span><span>Scikit-learn</span><span>Imbalanced-learn</span><span>Data Science</span>
+                            <span>Python</span><span>NLTK</span><span>Pandas</span><span>Sentiment Analysis</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/saiprudhvi01/project-placeholder-4" target="_blank" class="project-link">
+                            <a href="https://github.com/saiprudhvi01/PHEMESOFT-INTERN-SENTIMENTAL-ANALYSIS-OF-PRODUCT-REVIEWS" target="_blank" class="project-link">
                                 <i class="fab fa-github"></i> GitHub Repo
                             </a>
-                            <a href="#" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/e91e63/ffffff?text=Women+Safety" alt="Women Safety Analytics Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Women Safety Analytics</h3>
+                        <p>A data-driven project focusing on analyzing safety parameters and providing insights to enhance women's security in urban environments.</p>
+                        <div class="project-tech-tags">
+                            <span>Python</span><span>Data Analysis</span><span>Visualisation</span><span>Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/saiprudhvi01/Women-Safety-Analytics" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/ff9800/ffffff?text=Drowsiness+Detection" alt="Driver Drowsiness Detection Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Driver Drowsiness Detection</h3>
+                        <p>An AI-powered system that monitors driver behavior in real-time to detect signs of drowsiness and prevent accidents.</p>
+                        <div class="project-tech-tags">
+                            <span>Python</span><span>OpenCV</span><span>Deep Learning</span><span>Real-time Analytics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/saiprudhvi01/Driver-Drowsiness-Detection" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub Repo
                             </a>
                         </div>
                     </div>
@@ -1875,8 +1904,8 @@
                 });
 
                 card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-                    card.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.3)';
+                    card.style.transform = ''; // Let CSS handle base state
+                    card.style.boxShadow = ''; // Let CSS handle base state
                 });
             });
 
