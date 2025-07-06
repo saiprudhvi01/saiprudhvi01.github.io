@@ -5,52 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>White & Blue Dynamic Theme</title>
     <style>
+        /* This section contains ALL the CSS styling for the entire page */
+
         /* Basic Reset & Body Styling */
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333; /* Dark gray for text */
             overflow: hidden; /* Hide scrollbars, especially for video background */
-            background-color: #f0f8ff; /* Lightest blue as a fallback */
+            background-color: #f0f8ff; /* Lightest blue as a fallback if video fails or not supported */
         }
 
         /* Video Background Styling */
         #video-background {
-            position: fixed;
+            position: fixed; /* Fixes the video to the viewport */
             right: 0;
             bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
+            min-width: 100%; /* Ensures video covers full width */
+            min-height: 100%; /* Ensures video covers full height */
             width: auto;
             height: auto;
-            z-index: -1; /* Send to back */
-            background-size: cover;
-            filter: brightness(0.7) opacity(0.8); /* Darken and make slightly transparent */
-            transition: filter 1s ease-in-out; /* Smooth transition for filter change */
+            z-index: -1; /* Sends the video to the very back layer */
+            background-size: cover; /* Ensures the video covers the area without distorting aspect ratio */
+            filter: brightness(0.7) opacity(0.8); /* Darkens the video and makes it slightly transparent for better text readability */
+            transition: filter 1s ease-in-out; /* Smooth transition for filter changes (used in JS) */
         }
 
         /* Overlay to enhance text readability over video */
         .overlay {
-            position: fixed;
+            position: fixed; /* Fixes the overlay to the viewport */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: rgba(255, 255, 255, 0.5); /* Semi-transparent white overlay */
-            z-index: -1;
+            z-index: -1; /* Place overlay behind content but above video */
         }
 
         /* Main Content Container */
         .container {
-            position: relative;
-            z-index: 1; /* Ensure content is above video/overlay */
-            max-width: 900px;
-            margin: 50px auto;
+            position: relative; /* Allows z-index to work relative to other positioned elements */
+            z-index: 1; /* Ensures content is above video and overlay */
+            max-width: 900px; /* Limits content width for readability */
+            margin: 50px auto; /* Centers the container horizontally with top/bottom margin */
             padding: 30px;
             background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for content box */
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            animation: fadeInScale 1s ease-out forwards; /* Dynamic entrance */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            animation: fadeInScale 1s ease-out forwards; /* Dynamic entrance animation for the container */
         }
 
         /* Header Styling */
@@ -58,35 +60,35 @@
             color: #007bff; /* Vibrant blue for headings */
             text-align: center;
             margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
         }
 
         /* Paragraph Styling */
         p {
-            line-height: 1.6;
+            line-height: 1.6; /* Improves readability of text blocks */
             margin-bottom: 15px;
-            color: #555;
+            color: #555; /* Slightly lighter gray for paragraph text */
         }
 
         /* Button Styling - Dynamic Hover Effect */
         .button {
-            display: inline-block;
+            display: inline-block; /* Allows padding and width/height */
             padding: 12px 25px;
             background-color: #007bff; /* Blue background */
-            color: white;
-            text-decoration: none;
+            color: white; /* White text on button */
+            text-decoration: none; /* Removes underline from links */
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover effects */
             border: none;
-            cursor: pointer;
+            cursor: pointer; /* Indicates it's clickable */
             font-size: 16px;
             margin-top: 20px;
         }
 
         .button:hover {
             background-color: #0056b3; /* Darker blue on hover */
-            transform: translateY(-3px); /* Slight lift effect */
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Blue shadow */
+            transform: translateY(-3px); /* Subtle lift effect */
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Blue shadow on hover */
         }
 
         /* Navigation Bar - Example */
@@ -94,8 +96,8 @@
             background-color: rgba(0, 123, 255, 0.9); /* Semi-transparent blue navbar */
             padding: 15px 0;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow below navbar */
+            margin-bottom: 30px; /* Space below navbar */
         }
 
         .navbar a {
@@ -103,41 +105,43 @@
             text-decoration: none;
             padding: 0 20px;
             font-weight: bold;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease; /* Smooth color change on hover */
         }
 
         .navbar a:hover {
             color: #e0f2f7; /* Lighter white-blue on hover */
         }
 
-        /* Dynamic Effects - Keyframes */
+        /* Dynamic Effects - Keyframes for CSS animations */
         @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: scale(0.95);
+                transform: scale(0.95); /* Starts slightly smaller */
             }
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: scale(1); /* Ends at normal size */
             }
         }
 
+        /* Styles for scroll-triggered fade-in sections (initial state) */
         .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Starts slightly below its final position */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition when becoming visible */
         }
 
+        /* State when fade-in section becomes visible (JS adds this class) */
         .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Moves to its final position */
         }
 
-        /* Ripple Effect for Buttons (JavaScript powered) */
+        /* Ripple Effect for Buttons (CSS combined with JS to trigger active state) */
         .ripple {
             position: relative;
-            overflow: hidden;
-            transform: translate3d(0, 0, 0);
+            overflow: hidden; /* Hides the ripple effect outside the button boundaries */
+            transform: translate3d(0, 0, 0); /* Forces hardware acceleration for smoother animation */
         }
 
         .ripple:after {
@@ -148,19 +152,19 @@
             height: 100%;
             top: 0;
             left: 0;
-            pointer-events: none;
-            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            pointer-events: none; /* Ensures the pseudo-element doesn't interfere with clicks */
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%); /* Creates the ripple color */
             background-repeat: no-repeat;
-            background-position: 50%;
-            transform: scale(10, 10);
-            opacity: 0;
-            transition: transform .6s, opacity 1s;
+            background-position: 50%; /* Starts ripple from the center */
+            transform: scale(10, 10); /* Scales up the ripple */
+            opacity: 0; /* Initially hidden */
+            transition: transform .6s, opacity 1s; /* Smooth transition for ripple effect */
         }
 
-        .ripple:active:after {
-            transform: scale(0, 0);
-            opacity: .2;
-            transition: 0s;
+        .ripple:active:after { /* When button is clicked/active, trigger ripple */
+            transform: scale(0, 0); /* Scales ripple down quickly from current size */
+            opacity: .2; /* Becomes slightly visible */
+            transition: 0s; /* No delay on activation */
         }
     </style>
 </head>
@@ -207,39 +211,47 @@
     </div>
 
     <script>
+        // This section contains ALL the JavaScript for dynamic effects
+
         // JavaScript for Scroll-triggered Fade-in Sections
         document.addEventListener("DOMContentLoaded", function() {
+            // Select all elements that should fade in on scroll
             const sections = document.querySelectorAll('.fade-in-section');
 
+            // Options for the Intersection Observer
             const observerOptions = {
-                root: null, // viewport
-                rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of the section is visible
+                root: null, // 'null' means the viewport is the root
+                rootMargin: '0px', // No extra margin around the root
+                threshold: 0.1 // Trigger when 10% of the target element is visible
             };
 
+            // Create a new Intersection Observer
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
+                        // If the element is visible, add the 'is-visible' class
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Stop observing once visible
+                        // Stop observing the element once it has become visible
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
+            // Observe each fade-in section
             sections.forEach(section => {
                 observer.observe(section);
             });
 
-            // Optional: Smooth scroll for nav links (if you have them)
-            // This makes clicking on navigation links scroll smoothly to the section
+            // Optional: Smooth scroll for navigation links (e.g., clicking 'About Us' scrolls smoothly)
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
+                    e.preventDefault(); // Prevent default jump behavior
 
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
+                    const targetId = this.getAttribute('href'); // Get the ID from the href
+                    const targetElement = document.querySelector(targetId); // Find the element by ID
 
                     if (targetElement) {
+                        // Scroll to the target element smoothly
                         targetElement.scrollIntoView({
                             behavior: 'smooth'
                         });
@@ -249,17 +261,18 @@
         });
 
         // JavaScript for video background filter change on user interaction (example)
-        // This effect changes the video's brightness and opacity when you hover over the main content area.
+        // This effect changes the video's brightness and opacity when the mouse enters/leaves the main content area.
         const videoBackground = document.getElementById('video-background');
         const container = document.querySelector('.container');
 
-        if (container && videoBackground) { // Check if elements exist before adding listeners
+        // Ensure both elements exist before trying to add event listeners
+        if (container && videoBackground) {
             container.addEventListener('mouseenter', function() {
-                videoBackground.style.filter = 'brightness(0.9) opacity(0.9)'; // Brighter and less opaque
+                videoBackground.style.filter = 'brightness(0.9) opacity(0.9)'; // Make video brighter and less opaque on hover
             });
 
             container.addEventListener('mouseleave', function() {
-                videoBackground.style.filter = 'brightness(0.7) opacity(0.8)'; // Back to original
+                videoBackground.style.filter = 'brightness(0.7) opacity(0.8)'; // Revert to original filter on mouse leave
             });
         }
     </script>
