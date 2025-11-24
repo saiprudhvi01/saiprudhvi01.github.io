@@ -231,68 +231,340 @@
             margin: 0 auto;
         }
 
-        /* Skills */
+        /* Enhanced Skills Section */
         .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
         }
 
-        .skill-card {
-            background-color: var(--darker);
+        .skill-category {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             padding: 2rem;
-            border-radius: 10px;
-            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.6s ease-out;
         }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+            animation: shimmer 3s ease-in-out infinite;
         }
 
-        .skill-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        .category-title {
+            font-size: 1.8rem;
             color: var(--primary);
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-card p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-level {
-            height: 8px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            margin-bottom: 1rem;
+            gap: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 128, 0.1));
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
             overflow: hidden;
+        }
+
+        .category-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: slideShine 3s ease-in-out infinite;
+        }
+
+        @keyframes slideShine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        .category-title i {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .skill-item:hover::before {
+            opacity: 1;
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Programming Languages Icons */
+        .skill-icon.python-logo { 
+            background: #3776ab; 
+            color: #FFD43B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .skill-icon.fab.fa-python { background: #3776ab; color: #FFD43B; }
+        .skill-icon.fas.fa-database.sql { background: #336791; color: #ffffff; }
+
+        /* AI/ML & Data Science Icons */
+        .skill-icon.fas.fa-robot { background: #FF6B6B; color: #ffffff; }
+        .skill-icon.fas.fa-network-wired { background: #FF6B35; color: #ffffff; }
+        .skill-icon.fas.fa-comments { background: #4A90E2; color: #ffffff; }
+        .skill-icon.fas.fa-eye { background: #FF6F00; color: #ffffff; }
+        .skill-icon.fas.fa-microchip { background: #00C853; color: #ffffff; }
+        .skill-icon.fas.fa-magic { background: #9C27B0; color: #ffffff; }
+        .skill-icon.fas.fa-chart-pie { background: #2196F3; color: #ffffff; }
+        .skill-icon.fas.fa-project-diagram { background: #E91E63; color: #ffffff; }
+
+        /* Frameworks & Libraries Icons */
+        .skill-icon.fas.fa-flask { background: #000000; color: #ffffff; }
+        .skill-icon.fas.fa-water { background: #FF4B4B; color: #ffffff; }
+        .skill-icon.fas.fa-tensor { background: #FF6F00; color: #ffffff; }
+        .skill-icon.fas.fa-fire { background: #EE4C2C; color: #ffffff; }
+
+        /* Robotics & Sensor Systems Icons */
+        .skill-icon.fas.fa-satellite-dish { background: #00BCD4; color: #ffffff; }
+        .skill-icon.fas.fa-map-marked-alt { background: #4CAF50; color: #ffffff; }
+        .skill-icon.fas.fa-cube { background: #795548; color: #ffffff; }
+
+        /* Databases Icons */
+        .skill-icon.fas.fa-elephant { background: #336791; color: #ffffff; }
+        .skill-icon.fas.fa-database.sqlite { background: #003B57; color: #ffffff; }
+
+        /* Tools & Platforms Icons */
+        .skill-icon.fab.fa-git-alt { background: #F05032; color: #ffffff; }
+        .skill-icon.fab.fa-github { background: #24292e; color: #ffffff; }
+        .skill-icon.fab.fa-linux { background: #FCC624; color: #000000; }
+        .skill-icon.fas.fa-book { background: #F37726; color: #ffffff; }
+        .skill-icon.fas.fa-code.vscode { background: #007ACC; color: #ffffff; }
+        .skill-icon.fas.fa-chart-line.kaggle { background: #20BEFF; color: #ffffff; }
+
+        .skill-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: iconShine 3s ease-in-out infinite;
+        }
+
+        @keyframes iconShine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .skill-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .skill-info h4 {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
         }
 
         .skill-progress {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 50px;
+            width: 0;
+            transition: width 1.5s ease-out;
             position: relative;
+            overflow: hidden;
         }
 
-        .skill-progress::after {
-            content: attr(data-progress);
+        .skill-progress::before {
+            content: '';
             position: absolute;
-            right: 10px;
-            top: -25px;
-            color: var(--light);
-            font-size: 0.9rem;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: progressShine 2s ease-in-out infinite;
+        }
+
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Mobile Responsive Skills */
+        @media (max-width: 768px) {
+            .skills-container {
+                gap: 2rem;
+            }
+
+            .skill-category {
+                padding: 1.5rem;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+                padding: 0.8rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .skill-item {
+                padding: 1rem;
+            }
+
+            .skill-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .skill-info h4 {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-container {
+                gap: 1.5rem;
+            }
+
+            .skill-category {
+                padding: 1rem;
+            }
+
+            .category-title {
+                font-size: 1.3rem;
+                padding: 0.6rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .skill-item {
+                padding: 0.8rem;
+                gap: 0.8rem;
+            }
+
+            .skill-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .skill-info h4 {
+                font-size: 0.9rem;
+            }
+
+            .skill-bar {
+                height: 6px;
+            }
         }
 
         /* Projects */
+        .projects-container {
+            overflow-x: auto;
+            padding: 2rem 0;
+            margin: 0 -5%;
+        }
+
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
             gap: 2rem;
+            min-width: fit-content;
+            padding: 0 5%;
         }
 
         .project-card {
@@ -300,11 +572,317 @@
             border-radius: 10px;
             overflow: hidden;
             transition: var(--transition);
+            min-width: 300px;
+            max-width: 350px;
+            flex-shrink: 0;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Scrollbar styling */
+        .projects-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .projects-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .projects-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .projects-container::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Category Headings */
+        .category-heading {
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-align: center;
+            margin: 3rem 0 2rem 0;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 128, 0.1));
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .category-heading::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
+            border-radius: 10px;
+            opacity: 0;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 0, 128, 0.5); }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Enhanced Project Card Styles */
+        .project-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            min-width: 300px;
+            max-width: 350px;
+            flex-shrink: 0;
+            transform-style: preserve-3d;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3), 0 0 60px rgba(255, 0, 128, 0.2);
+            border-color: var(--primary);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-content h3 {
+            transform: translateX(5px);
+        }
+
+        .project-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover .project-content p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 128, 0.2));
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .tech-tag:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tech-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+
+        .project-link:hover::before {
+            left: 100%;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .category-heading {
+                font-size: 1.4rem;
+                margin: 2rem 0 1.5rem 0;
+                padding: 0.8rem;
+            }
+
+            .projects-container {
+                padding: 1rem 0;
+                margin: 0 -1rem;
+            }
+
+            .projects-grid {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+
+            .project-card {
+                min-width: 280px;
+                max-width: 320px;
+            }
+
+            .project-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .project-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .project-content p {
+                font-size: 0.9rem;
+            }
+
+            .tech-tag {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-heading {
+                font-size: 1.2rem;
+                margin: 1.5rem 0 1rem 0;
+                padding: 0.6rem;
+            }
+
+            .projects-grid {
+                padding: 0 0.5rem;
+            }
+
+            .project-card {
+                min-width: 250px;
+                max-width: 280px;
+            }
+
+            .project-img {
+                height: 150px;
+            }
+
+            .project-content {
+                padding: 1rem;
+            }
+
+            .project-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .project-content p {
+                font-size: 0.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .tech-tag {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .project-link {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
         }
 
         .project-img {
@@ -362,7 +940,251 @@
             color: var(--accent);
         }
 
-        /* Contact */
+        /* Hackathons Section */
+        .achievements-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background-color: var(--darker);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            color: #FFD700;
+            flex-shrink: 0;
+        }
+
+        .achievement-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .achievement-org {
+            color: #4A90E2;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .achievement-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-desc {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Publications Section */
+        .publications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+
+        .publication-card {
+            background-color: var(--darker);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .publication-icon {
+            font-size: 2.5rem;
+            color: #2196F3;
+            flex-shrink: 0;
+        }
+
+        .publication-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .publication-journal {
+            color: #4CAF50;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .publication-publisher {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .publication-link {
+            color: #2196F3;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .publication-link:hover {
+            color: #64B5F6;
+        }
+
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background-color: var(--darker);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cert-icon {
+            font-size: 2.5rem;
+            color: #FF6B35;
+            flex-shrink: 0;
+        }
+
+        .cert-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .cert-issuer {
+            color: #4A90E2;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced Animations */
+        .skill-icon::before {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-icon:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            .skill-category, .project-card, .contact-card, .contact-form,
+            .achievement-card, .publication-card, .cert-card,
+            .hero-text, .hero-image {
+                transition: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+            
+            .skill-progress {
+                transition: none !important;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Add pulse animation to important elements */
+        .hero-text h1 {
+            animation: pulse 2s infinite;
+        }
+
+        .skill-icon {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Tablet optimizations */
+        @media (max-width: 768px) and (min-width: 577px) {
+            .skills-grid, .projects-grid, .achievements-container,
+            .publications-container, .certifications-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .project-card, .achievement-card, .publication-card, .cert-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Performance optimizations */
+        .skill-icon, .project-card, .achievement-card, .publication-card, .cert-card {
+            will-change: transform;
+        }
+
+        /* Disable animations on low-end devices */
+        @media (max-width: 576px) {
+            .skill-icon, .project-card, .achievement-card, .publication-card, .cert-card {
+                will-change: auto;
+            }
+        }
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -402,6 +1224,7 @@
             align-items: center;
             gap: 1rem;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
         }
 
         .contact-icon {
@@ -414,6 +1237,12 @@
             justify-content: center;
             font-size: 1.2rem;
             color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            flex: 1;
+            min-width: 0;
         }
 
         .contact-text h4 {
@@ -669,6 +1498,58 @@
             .btn-outline {
                 margin-left: 0;
             }
+            
+            /* Mobile Contact Styles */
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                text-align: left;
+            }
+            
+            .contact-icon {
+                margin-bottom: 0.5rem;
+            }
+            
+            .contact-text {
+                width: 100%;
+            }
+            
+            .contact-text a {
+                word-break: break-all;
+                font-size: 0.9rem;
+            }
+            
+            /* Mobile Animations - Reduce motion for better performance */
+            .skill-category, .project-card, .contact-card, .contact-form,
+            .achievement-card, .publication-card, .cert-card {
+                transition: all 0.3s ease !important;
+            }
+            
+            .skill-icon {
+                transition: transform 0.2s ease !important;
+            }
+            
+            /* Disable hover animations on touch devices */
+            @media (hover: none) {
+                .project-card:hover,
+                .achievement-card:hover,
+                .publication-card:hover,
+                .cert-card:hover,
+                .skill-icon:hover {
+                    transform: none !important;
+                }
+            }
+            
+            /* Mobile-specific card animations */
+            .project-card, .achievement-card, .publication-card, .cert-card {
+                transform: translateY(20px) !important;
+            }
+            
+            /* Reduce animation intensity on mobile */
+            .hero-text, .hero-image {
+                transform: translateY(30px) !important;
+            }
         }
     </style>
 </head>
@@ -681,6 +1562,9 @@
             <a href="#home" class="active">Home</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#hackathons">Hackathons</a>
+            <a href="#publications">Publications</a>
+            <a href="#certifications">Certifications</a>
             <a href="#contact">Contact</a>
         </nav>
 
@@ -720,55 +1604,323 @@
     <section class="skills" id="skills">
         <div class="section-title">
             <h2>My Skills</h2>
-            <p>Technologies I work with and my proficiency levels</p>
+            <p>Comprehensive technical expertise across AI/ML, software development, and emerging technologies</p>
         </div>
         
         <div class="skills-container">
-            <div class="skill-card">
-                <h3><i class="fab fa-python"></i> Python & AI/ML</h3>
-                <p>Expertise in developing machine learning models and AI solutions using Python and its ecosystem.</p>
-                <div class="skill-level">
-                    <div class="skill-progress" data-progress="95%" style="width: 95%;"></div>
+            <!-- Programming Languages -->
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <i class="fas fa-code"></i>
+                    Programming Languages
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon python-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Python</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-database"></div>
+                        <div class="skill-info">
+                            <h4>SQL</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="skill-card">
-                <h3><i class="fas fa-brain"></i> Deep Learning</h3>
-                <p>Building neural networks with TensorFlow and PyTorch for complex pattern recognition tasks.</p>
-                <div class="skill-level">
-                    <div class="skill-progress" data-progress="90%" style="width: 90%;"></div>
+
+            <!-- AI/ML & Data Science -->
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <i class="fas fa-brain"></i>
+                    AI/ML & Data Science
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-brain"></div>
+                        <div class="skill-info">
+                            <h4>Machine Learning</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-network-wired"></div>
+                        <div class="skill-info">
+                            <h4>Deep Learning</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-language"></div>
+                        <div class="skill-info">
+                            <h4>NLP</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-eye"></div>
+                        <div class="skill-info">
+                            <h4>Computer Vision</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-microchip"></div>
+                        <div class="skill-info">
+                            <h4>LLMs</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-wand-magic-sparkles"></div>
+                        <div class="skill-info">
+                            <h4>Prompt Engineering</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="83%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-chart-pie"></div>
+                        <div class="skill-info">
+                            <h4>Explainable AI</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-project-diagram"></div>
+                        <div class="skill-info">
+                            <h4>Causal AI</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="78%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="skill-card">
-                <h3><i class="fas fa-chart-line"></i> Data Science</h3>
-                <p>Extracting insights from complex datasets using statistical analysis and visualization.</p>
-                <div class="skill-level">
-                    <div class="skill-progress" data-progress="88%" style="width: 88%;"></div>
+
+            <!-- Frameworks & Libraries -->
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <i class="fas fa-cubes"></i>
+                    Frameworks & Libraries
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Flask</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Streamlit</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-tensor"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>TensorFlow</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>PyTorch</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="82%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="skill-card">
-                <h3><i class="fas fa-eye"></i> Computer Vision</h3>
-                <p>Implementing image processing and object detection systems using OpenCV and deep learning.</p>
-                <div class="skill-level">
-                    <div class="skill-progress" data-progress="85%" style="width: 85%;"></div>
+
+            <!-- Robotics & Sensor Systems -->
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <i class="fas fa-robot"></i>
+                    Robotics & Sensor Systems
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>LiDAR</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>SLAM</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="72%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Webots</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="skill-card">
-                <h3><i class="fas fa-language"></i> Natural Language Processing</h3>
-                <p>Building text processing systems including sentiment analysis, text classification, and summarization.</p>
-                <div class="skill-level">
-                    <div class="skill-progress" data-progress="82%" style="width: 82%;"></div>
+
+            <!-- Databases -->
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <i class="fas fa-database"></i>
+                    Databases
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-elephant"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>PostgreSQL</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="83%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-database sqlite">
+                        </div>
+                        <div class="skill-info">
+                            <h4>SQLite</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="87%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="skill-card">
-                <h3><i class="fas fa-database"></i> SQL & Databases</h3>
-                <p>Designing and optimizing databases for efficient data storage and retrieval.</p>
-                <div class="skill-level">
-                    <div class="skill-progress" data-progress="80%" style="width: 80%;"></div>
+
+            <!-- Tools & Platforms -->
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <i class="fas fa-tools"></i>
+                    Tools & Platforms
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Git</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>GitHub</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Linux</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Jupyter Notebook</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-code vscode">
+                        </div>
+                        <div class="skill-info">
+                            <h4>VS Code</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="93%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon fas fa-chart-line kaggle">
+                        </div>
+                        <div class="skill-info">
+                            <h4>Kaggle</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -778,124 +1930,1158 @@
     <section class="projects" id="projects">
         <div class="section-title">
             <h2>My Projects</h2>
-            <p>Some of my recent work in AI/ML and Data Science</p>
+            <p>Explore my diverse work across AI/ML, Web Development, Cybersecurity, and more</p>
         </div>
         
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Health Care System" class="project-img">
-                <div class="project-content">
-                    <h3>Health Care System</h3>
-                    <p>Comprehensive healthcare solution with multiple disease prediction using X-ray analysis, symptom evaluation, and personalized recommendations.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Image Processing</span>
+        <h3 class="category-heading">🤖 Artificial Intelligence & Machine Learning</h3>
+        <!-- AI/ML Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                    <!-- Sign-Aura -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sign Aura" class="project-img">
+                        <div class="project-content">
+                            <h3>Sign Aura</h3>
+                            <p>Advanced sign language detection and interpretation system using computer vision.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">Deep Learning</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Sign-Aura" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/saiprudhvi01/HEALTH-CARE" target="_blank" class="project-link">
-                            <i class="fas fa-code"></i> Code
-                        </a>
+                    
+                    <!-- Career-Recommendation-System -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Career Recommendation" class="project-img">
+                        <div class="project-content">
+                            <h3>Career Recommendation System</h3>
+                            <p>AI-powered career guidance system suggesting optimal career paths based on skills and preferences.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Recommendation</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Career-Recommendation-System" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Deep-Fake-Detection -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Deep Fake Detection" class="project-img">
+                        <div class="project-content">
+                            <h3>Deep Fake Detection</h3>
+                            <p>Advanced system for detecting deepfake videos and images using deep learning techniques.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Deep Learning</span>
+                                <span class="tech-tag">Computer Vision</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Deep-Fake-Detection" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chatbot -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="AI Chatbot" class="project-img">
+                        <div class="project-content">
+                            <h3>AI Chatbot</h3>
+                            <p>Intelligent conversational AI chatbot for customer service and support.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Chatbot</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Chatbot" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Loan-Prediction -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Loan Prediction System" class="project-img">
+                        <div class="project-content">
+                            <h3>Loan Prediction System</h3>
+                            <p>Machine learning system for predicting loan eligibility and risk assessment.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Finance</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Loan-Prediction" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- EMAIL-SPAM-CLASSIFIER -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Email Spam Classifier" class="project-img">
+                        <div class="project-content">
+                            <h3>Email Spam Classifier</h3>
+                            <p>Machine learning system for automatically classifying and filtering spam emails.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">NLP</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/EMAIL-SPAM-CLASSIFIER" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- VOICE-ASSISTANT -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Voice Assistant" class="project-img">
+                        <div class="project-content">
+                            <h3>Voice Assistant</h3>
+                            <p>Intelligent voice-activated assistant for hands-free interaction and task automation.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Speech Recognition</span>
+                                <span class="tech-tag">NLP</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/VOICE-ASSISTANT" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="category-heading">🏥 Medical AI & Healthcare</h3>
+        <!-- Medical AI Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                    <!-- Alzheimer-Disease-Prediction-with-Causal-AI -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Alzheimer Prediction" class="project-img">
+                        <div class="project-content">
+                            <h3>Alzheimer Prediction with Causal AI</h3>
+                            <p>Advanced Alzheimer's disease prediction system using causal AI analysis and interpretability.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Causal AI</span>
+                                <span class="tech-tag">Medical AI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Alzheimer-Disease-Prediction-with-Causal-AI-Analysis" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Causal-AI-based-Diabetic-Retinopathy-Detection -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Diabetic Retinopathy" class="project-img">
+                        <div class="project-content">
+                            <h3>Diabetic Retinopathy Detection</h3>
+                            <p>Causal AI-based system for detecting diabetic retinopathy from retinal images.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Causal AI</span>
+                                <span class="tech-tag">Medical Imaging</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Causal-AI-based-Diabetic-Retinopathy-Detection" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dental-Carries -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dental Carries" class="project-img">
+                        <div class="project-content">
+                            <h3>Dental Carries Detection</h3>
+                            <p>AI system for detecting dental caries from dental X-rays and images.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Image Processing</span>
+                                <span class="tech-tag">Medical AI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Dental-Carries" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CNN-Based-Pnuemonia-Detection -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pneumonia Detection" class="project-img">
+                        <div class="project-content">
+                            <h3>CNN-based Pneumonia Detection</h3>
+                            <p>Deep learning system for detecting pneumonia from chest X-ray images using CNN.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">CNN</span>
+                                <span class="tech-tag">Medical AI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/CNN-Based-Pnuemonia-Detection" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Oral-Lesion -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Oral Lesion Detection" class="project-img">
+                        <div class="project-content">
+                            <h3>Oral Lesion Detection</h3>
+                            <p>AI-powered system for detecting oral lesions from dental images for early diagnosis.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Medical AI</span>
+                                <span class="tech-tag">Image Processing</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Oral-Lesion" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- HEALTH-CARE -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Health Care System" class="project-img">
+                        <div class="project-content">
+                            <h3>Health Care System</h3>
+                            <p>Comprehensive healthcare solution with multiple disease prediction and patient management.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Healthcare</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/HEALTH-CARE" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- MEDI-CARE -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="MEDICARE" class="project-img">
+                        <div class="project-content">
+                            <h3>MEDI-CARE</h3>
+                            <p>Comprehensive healthcare management system for hospitals and clinics.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Healthcare</span>
+                                <span class="tech-tag">Management</span>
+                                <span class="tech-tag">Web App</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/MEDI-CARE" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Alzheimer-Disease-Prediction-and-Classification -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Alzheimer Prediction" class="project-img">
+                        <div class="project-content">
+                            <h3>Alzheimer Disease Prediction</h3>
+                            <p>Advanced system using Recursive Feature Elimination with ANN for early Alzheimer's detection.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">ANN</span>
+                                <span class="tech-tag">RFE</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Alzheimer-Disease-Prediction-and-Classification" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="category-heading">🌐 Web Development & Applications</h3>
+        <!-- Web Development Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                    <!-- Campus-Event-Management-System -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Campus Event Management" class="project-img">
+                        <div class="project-content">
+                            <h3>Campus Event Management System</h3>
+                            <p>Comprehensive event management platform for organizing and managing campus events efficiently.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Web Development</span>
+                                <span class="tech-tag">Database</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Campus-Event-Management-System" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Food-Ordering-System -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Food Ordering System" class="project-img">
+                        <div class="project-content">
+                            <h3>Food Ordering System</h3>
+                            <p>Complete food ordering platform for Kalasalingam University with online ordering capabilities.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Web Development</span>
+                                <span class="tech-tag">Database</span>
+                                <span class="tech-tag">UI/UX</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Food-Ordering-System-Kalasalingam-University-" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- KARE-Bus-Management-System -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Bus Management System" class="project-img">
+                        <div class="project-content">
+                            <h3>KARE Bus Management System</h3>
+                            <p>Comprehensive bus transportation management system for educational institutions.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Web Development</span>
+                                <span class="tech-tag">Management</span>
+                                <span class="tech-tag">Logistics</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/KARE-Bus-Management-System-" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Grievance-Management-System -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Grievance Management" class="project-img">
+                        <div class="project-content">
+                            <h3>Grievance Management System</h3>
+                            <p>Platform for managing and resolving public grievances and complaints efficiently.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Web Development</span>
+                                <span class="tech-tag">Management</span>
+                                <span class="tech-tag">Database</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Grievance-Management-System" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- EXPENSE-TRACKER -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Expense Tracker" class="project-img">
+                        <div class="project-content">
+                            <h3>Expense Tracker</h3>
+                            <p>Personal finance management application for tracking expenses and budget planning.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Web Development</span>
+                                <span class="tech-tag">Finance</span>
+                                <span class="tech-tag">Database</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/EXPENSE-TRACKER" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- saiprudhvi01.github.io -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Personal Portfolio" class="project-img">
+                        <div class="project-content">
+                            <h3>Personal Portfolio</h3>
+                            <p>My personal portfolio website built with HTML, CSS, and JavaScript showcasing my projects and skills.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/saiprudhvi01.github.io" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- saiprudhvi011.github.io -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portfolio V2" class="project-img">
+                        <div class="project-content">
+                            <h3>Portfolio Website V2</h3>
+                            <p>Second version of personal portfolio website with enhanced features and design.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/saiprudhvi011.github.io" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="category-heading">🛡️ Cybersecurity & Threat Detection</h3>
+        <!-- Cybersecurity Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                    <!-- zta-readiness-assessment -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="ZTA Readiness Assessment" class="project-img">
+                        <div class="project-content">
+                            <h3>ZTA Readiness Assessment</h3>
+                            <p>Zero Trust Architecture readiness assessment tool for enterprise security evaluation.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Cybersecurity</span>
+                                <span class="tech-tag">Assessment</span>
+                                <span class="tech-tag">Enterprise</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/zta-readiness-assessment" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mini-SIEM -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Mini SIEM" class="project-img">
+                        <div class="project-content">
+                            <h3>Mini SIEM System</h3>
+                            <p>Gamified cybersecurity log monitoring and threat detection system for security operations.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Cybersecurity</span>
+                                <span class="tech-tag">SIEM</span>
+                                <span class="tech-tag">Threat Detection</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Mini-SIEM-Gamified-Cybersecurity-Log-Monitoring-and-Threat-Detection-System" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cyber-Attacks -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cyber Attacks" class="project-img">
+                        <div class="project-content">
+                            <h3>Cyber Attack Analysis</h3>
+                            <p>Analysis and detection system for various types of cyber attacks and security threats.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Cybersecurity</span>
+                                <span class="tech-tag">Threat Analysis</span>
+                                <span class="tech-tag">Security</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Cyber-Attacks" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phising-email-detector -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Phishing Detector" class="project-img">
+                        <div class="project-content">
+                            <h3>Phishing Email Detector</h3>
+                            <p>Machine learning system for detecting phishing emails with high accuracy.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Email Security</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Phising-email-detector" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="category-heading">📊 Data Science & Analytics</h3>
+        <!-- Data Science Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                    <!-- Water-Quality-Prediction -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1547483238-f400e65ccd56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Water Quality Prediction" class="project-img">
+                        <div class="project-content">
+                            <h3>Water Quality Prediction</h3>
+                            <p>Machine learning system for predicting water quality using various environmental parameters.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Data Science</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Water-Quality-Prediction" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SAP-Invoice-Analytics -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="SAP Invoice Analytics" class="project-img">
+                        <div class="project-content">
+                            <h3>SAP Invoice Analytics</h3>
+                            <p>Business intelligence solution for analyzing invoice data and generating insights.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">SAP</span>
+                                <span class="tech-tag">Analytics</span>
+                                <span class="tech-tag">Data Visualization</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/SAP-Invoice-Analytics" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Women-Safety-Analytics -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Women Safety Analytics" class="project-img">
+                        <div class="project-content">
+                            <h3>Women Safety Analytics</h3>
+                            <p>Data analysis project examining women's safety metrics and patterns for improved security measures.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Data Analysis</span>
+                                <span class="tech-tag">Visualization</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Women-Safety-Analytics" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Defforestation -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Deforestation" class="project-img">
+                        <div class="project-content">
+                            <h3>Deforestation Analysis</h3>
+                            <p>System for analyzing and monitoring deforestation patterns using satellite imagery.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Image Processing</span>
+                                <span class="tech-tag">Environmental</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Defforestation" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Co2-level-Indicator -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="CO2 Level Indicator" class="project-img">
+                        <div class="project-content">
+                            <h3>CO2 Level Indicator</h3>
+                            <p>Environmental monitoring system for tracking and displaying CO2 levels in real-time.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">IoT</span>
+                                <span class="tech-tag">Environmental</span>
+                                <span class="tech-tag">Monitoring</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Co2-level-Indicator" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="category-heading">🎓 Education & Learning Tools</h3>
+        <!-- Education Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                    <!-- Grade-Calculator-KARE -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Grade Calculator" class="project-img">
+                        <div class="project-content">
+                            <h3>Grade Calculator KARE</h3>
+                            <p>Academic grade calculation system for KARE institution with GPA and CGPA tracking.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Web Development</span>
+                                <span class="tech-tag">Education</span>
+                                <span class="tech-tag">Calculation</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Grade-Calculator-KARE" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Predicting-Student-Performance -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Student Performance Prediction" class="project-img">
+                        <div class="project-content">
+                            <h3>Student Performance Prediction</h3>
+                            <p>Machine learning system for predicting academic performance based on various factors.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Education</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Predicting-Student-Performance-using-Machine-Learning" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="category-heading">🌾 Agriculture & Farming Solutions</h3>
+        <!-- Agriculture Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                    <!-- smart-farming-assistant -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Smart Farming Assistant" class="project-img">
+                        <div class="project-content">
+                            <h3>Smart Farming Assistant</h3>
+                            <p>AI-powered agricultural assistant providing crop management and farming insights.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Agriculture</span>
+                                <span class="tech-tag">AI/ML</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/smart-farming-assistant" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="category-heading">💬 NLP & Language Processing</h3>
+        <!-- NLP Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                    <!-- Tanglish-Sentimental-Analyzer-using-Streamlit -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Tanglish Analyzer" class="project-img">
+                        <div class="project-content">
+                            <h3>Tanglish Sentiment Analyzer</h3>
+                            <p>Sentiment analysis tool for Tanglish (Tamil-English mixed) text using Streamlit.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Streamlit</span>
+                                <span class="tech-tag">NLP</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Tanglish-Sentimental-Analyzer-using-Streamlit" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tanglish-Sentimental-Analyzer -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Tanglish Analyzer V2" class="project-img">
+                        <div class="project-content">
+                            <h3>Tanglish Sentiment Analyzer V2</h3>
+                            <p>Enhanced version of Tanglish sentiment analysis with improved accuracy and features.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Machine Learning</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Tanglish-Sentimental-Analyzer-" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sentiment-Analysis -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sentiment Analysis" class="project-img">
+                        <div class="project-content">
+                            <h3>Sentiment Analysis System</h3>
+                            <p>Comprehensive sentiment analysis tool for analyzing text emotions and opinions.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Text Analysis</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Sentiment-Analysis" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Textsummarizer -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Text Summarizer" class="project-img">
+                        <div class="project-content">
+                            <h3>Text Summarizer</h3>
+                            <p>Automatic text summarization system using NLP techniques for content condensation.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Text Processing</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Textsummarizer" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PHEMESOFT-INTERN-SENTIMENTAL-ANALYSIS -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Product Reviews Analysis" class="project-img">
+                        <div class="project-content">
+                            <h3>Product Reviews Sentiment Analysis</h3>
+                            <p>NLP system for analyzing product reviews to determine customer sentiment and extract insights.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Sentiment Analysis</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/PHEMESOFT-INTERN-SENTIMENTAL-ANALYSIS-OF-PRODUCT-REVIEWS" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="category-heading">👁️ Computer Vision & Sign Language</h3>
+        <!-- Computer Vision Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                                        
+                    <!-- Sign-Language-Detection -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sign Language Detection" class="project-img">
+                        <div class="project-content">
+                            <h3>Sign Language Detection</h3>
+                            <p>Real-time sign language recognition system for improving communication accessibility.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Computer Vision</span>
+                                <span class="tech-tag">Deep Learning</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Sign-Language-Detection" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Driver-Drowsiness-Detection -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1547483238-f400e65ccd56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Driver Drowsiness Detection" class="project-img">
+                        <div class="project-content">
+                            <h3>Driver Drowsiness Detection</h3>
+                            <p>Real-time system that detects driver fatigue using facial recognition to prevent accidents.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">Face Recognition</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/Driver-Drowsiness-Detection" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="category-heading">⚙️ Special Applications & Tools</h3>
+        <!-- Special Applications Projects -->
+        <div class="projects-container">
+            <div class="projects-grid">
+                    <!-- qt-camera-application -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camera App" class="project-img">
+                        <div class="project-content">
+                            <h3>Qt Camera Application</h3>
+                            <p>Cross-platform camera application built with Qt framework for image capture and processing.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Qt</span>
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">Camera</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/saiprudhvi01/qt-camera-application" target="_blank" class="project-link">
+                                    <i class="fas fa-code"></i> Code
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Project 2 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1603366615917-1fa6dad5c4fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sign Language Detection" class="project-img">
-                <div class="project-content">
-                    <h3>Sign Language Detection</h3>
-                    <p>Real-time Indian Sign Language recognition system that converts gestures to text and speech, improving communication accessibility.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">CNN</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/saiprudhvi01/Sign-Language-Detection" target="_blank" class="project-link">
-                            <i class="fas fa-code"></i> Code
-                        </a>
-                    </div>
+        </div>
+    </section>
+
+    <!-- Hackathons Section -->
+    <section class="hackathons" id="hackathons">
+        <div class="section-title">
+            <h2>Hackathons & Achievements</h2>
+            <p>Competition wins and hackathon participation showcasing problem-solving skills</p>
+        </div>
+        
+        <div class="achievements-container">
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="achievement-content">
+                    <h3>Infosys Global Hackathon – Second Place</h3>
+                    <p class="achievement-org">Infosys STP Campus, Hyderabad</p>
+                    <p class="achievement-date">Oct 2025</p>
+                    <p class="achievement-desc">Developed a Causal-AI powered multi-disease prediction system using X-rays with CNN and sequential model architecture.</p>
                 </div>
             </div>
             
-            <!-- Project 3 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Alzheimer's Prediction" class="project-img">
-                <div class="project-content">
-                    <h3>Alzheimer's Prediction</h3>
-                    <p>Advanced system using Recursive Feature Elimination with Artificial Neural Networks for early Alzheimer's detection.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">ANN</span>
-                        <span class="tech-tag">RFE</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/saiprudhvi01/Alzheimer-Disease-Prediction-and-Classification" target="_blank" class="project-link">
-                            <i class="fas fa-code"></i> Code
-                        </a>
-                        <a href="https://www.kaggle.com/code/adhamtarek147/alzheimer-s-disease-prediction" target="_blank" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Kaggle
-                        </a>
-                    </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="achievement-content">
+                    <h3>IBM ICE Day Hackathon – First Place</h3>
+                    <p class="achievement-org">Kalasalingam University, Madurai</p>
+                    <p class="achievement-date">Apr 2023</p>
+                    <p class="achievement-desc">Built an autonomous navigation system using offline OSM maps with LiDAR obstacle detection and SLAM.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications" id="publications">
+        <div class="section-title">
+            <h2>Publications</h2>
+            <p>Research contributions and academic publications</p>
+        </div>
+        
+        <div class="publications-container">
+            <div class="publication-card">
+                <div class="publication-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="publication-content">
+                    <h3>Alzheimer Disease Prediction Using Recursive Feature Elimination and Artificial Neural Network</h3>
+                    <p class="publication-journal">DOI: 10.1109/NMITCON58196.2023.10276170</p>
+                    <p class="publication-publisher">IEEE, Google Scholar Indexed</p>
+                    <a href="https://doi.org/10.1109/NMITCON58196.2023.10276170" target="_blank" class="publication-link">
+                        <i class="fas fa-external-link-alt"></i> View Publication
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="section-title">
+            <h2>Licenses & Certifications</h2>
+            <p>Professional certifications, hackathon participations, and continuous learning achievements</p>
+        </div>
+        
+        <div class="certifications-container">
+            <!-- IIT Certifications -->
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Global Entrepreneurship Summit</h3>
+                    <p class="cert-issuer">Indian Institute of Technology, Kharagpur</p>
+                    <p class="cert-date">Dec 2024</p>
                 </div>
             </div>
             
-            <!-- Project 4 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sentiment Analysis" class="project-img">
-                <div class="project-content">
-                    <h3>Sentiment Analysis</h3>
-                    <p>NLP system that analyzes product reviews to determine customer sentiment and extract valuable insights.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Text Processing</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/saiprudhvi01/PHEMESOFT-INTERN-SENTIMENTAL-ANALYSIS-OF-PRODUCT-REVIEWS" target="_blank" class="project-link">
-                            <i class="fas fa-code"></i> Code
-                        </a>
-                    </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Innovation Cafe Hackathon</h3>
+                    <p class="cert-issuer">Malaviya National Institute of Technology Jaipur</p>
+                    <p class="cert-date">Dec 2024</p>
                 </div>
             </div>
             
-            <!-- Project 5 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Women Safety Analytics" class="project-img">
-                <div class="project-content">
-                    <h3>Women Safety Analytics</h3>
-                    <p>Data analysis project examining women's safety metrics and patterns to identify risk factors and improve safety measures.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Data Analysis</span>
-                        <span class="tech-tag">Visualization</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/saiprudhvi01/Women-Safety-Analytics" target="_blank" class="project-link">
-                            <i class="fas fa-code"></i> Code
-                        </a>
-                    </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Pitch On Pitch – Innovation Challenge</h3>
+                    <p class="cert-issuer">IIIT Design & Manufacturing Kancheepuram</p>
+                    <p class="cert-date">Dec 2024</p>
                 </div>
             </div>
             
-            <!-- Project 6 -->
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1547483238-f400e65ccd56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Driver Drowsiness Detection" class="project-img">
-                <div class="project-content">
-                    <h3>Drowsiness Detection</h3>
-                    <p>Real-time system that detects driver fatigue using facial recognition and alerts to prevent accidents.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">Face Recognition</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/saiprudhvi01/Driver-Drowsiness-Detection" target="_blank" class="project-link">
-                            <i class="fas fa-code"></i> Code
-                        </a>
-                    </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Start Up Pitch</h3>
+                    <p class="cert-issuer">Indian Institute of Technology, Mandi</p>
+                    <p class="cert-date">Dec 2024</p>
+                </div>
+            </div>
+            
+            <!-- Hackathon Certifications -->
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>The Blue Bit Hackathon 2.0</h3>
+                    <p class="cert-issuer">Pimpri Chinchwad College of Engineering Pune</p>
+                    <p class="cert-date">Dec 2024</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Vashisht Hackathon 2024 – NexusAeon</h3>
+                    <p class="cert-issuer">IIIT Design & Manufacturing Kancheepuram</p>
+                    <p class="cert-date">Dec 2024</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Certificate of Achievement – E-Summit '24 Hackathon</h3>
+                    <p class="cert-issuer">IIIT Design & Manufacturing Kancheepuram</p>
+                    <p class="cert-date">Mar 2024</p>
+                </div>
+            </div>
+            
+            <!-- Microsoft Certifications -->
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fab fa-microsoft"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Build a Natural Language Processing Solution with Azure AI Language</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                    <p class="cert-date">Feb 2024</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fab fa-microsoft"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Microsoft AI Skills Challenge</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                    <p class="cert-date">Jan 2024</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fab fa-microsoft"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Azure AI Fundamentals (AI-900) Exam Cram</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                    <p class="cert-date">Apr 2021</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fab fa-microsoft"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Microsoft Azure Fundamentals (AZ-900)</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                    <p class="cert-date">Apr 2021</p>
+                </div>
+            </div>
+            
+            <!-- Oracle Certification -->
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fab fa-oracle"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Oracle Cloud Infrastructure 2023 AI Certified Foundations Associate</h3>
+                    <p class="cert-issuer">Oracle</p>
+                    <p class="cert-date">Dec 2023 · Expires Dec 2025</p>
+                </div>
+            </div>
+            
+            <!-- Academic & Programming Certifications -->
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Introduction to Data Science</h3>
+                    <p class="cert-issuer">Infosys Springboard</p>
+                    <p class="cert-date">Aug 2024</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Developing Soft Skills and Personality</h3>
+                    <p class="cert-issuer">NPTEL</p>
+                    <p class="cert-date">Jul 2024</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Soft Skills</h3>
+                    <p class="cert-issuer">NPTEL</p>
+                    <p class="cert-date">Jul 2024</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Python Programming</h3>
+                    <p class="cert-issuer">Codegnan</p>
+                    <p class="cert-date">Jun 2024</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>CodeChef Programming Course</h3>
+                    <p class="cert-issuer">CodeChef</p>
+                    <p class="cert-date">Jul 2023</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Code Combat – Coding Ninjas</h3>
+                    <p class="cert-issuer">Coding Ninjas</p>
+                    <p class="cert-date">Oct 2022</p>
+                </div>
+            </div>
+            
+            <!-- Conference & Competition -->
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>NationBuilding (India's Largest Case Study Competition)</h3>
+                    <p class="cert-issuer">NationBuilding</p>
+                    <p class="cert-date">Feb 2024</p>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fas fa-presentation"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>NMITCON 2023 – IEEE International Conference Participation & Paper Presentation</h3>
+                    <p class="cert-issuer">IEEE</p>
+                    <p class="cert-date">Sep 2023</p>
                 </div>
             </div>
         </div>
@@ -1064,27 +3250,220 @@
             }, 3000);
         });
         
+        // Animate skill progress bars
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                if (rect.top < windowHeight - 100) {
+                    const progress = bar.getAttribute('data-progress');
+                    bar.style.width = progress;
+                }
+            });
+        };
+
+        // Animate numbers with counting effect
+        const animateNumbers = () => {
+            const numbers = document.querySelectorAll('.animate-number');
+            
+            numbers.forEach(number => {
+                const rect = number.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                if (rect.top < windowHeight - 100 && !number.classList.contains('animated')) {
+                    const target = parseInt(number.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    number.classList.add('animated');
+                    
+                    const updateNumber = () => {
+                        current += step;
+                        if (current < target) {
+                            number.textContent = Math.floor(current);
+                            requestAnimationFrame(updateNumber);
+                        } else {
+                            number.textContent = target;
+                        }
+                    };
+                    
+                    updateNumber();
+                }
+            });
+        };
+
         // Animate elements on scroll
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.skill-card, .project-card, .contact-card, .contact-form');
+            const elements = document.querySelectorAll(
+                '.skill-category, .project-card, .contact-card, .contact-form, ' +
+                '.achievement-card, .publication-card, .cert-card, ' +
+                '.section-title, .hero-text, .hero-image'
+            );
             
-            elements.forEach(element => {
+            elements.forEach((element, index) => {
                 const elementPosition = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 
                 if (elementPosition < windowHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                    // Add staggered delay for better visual effect
+                    const delay = element.classList.contains('skill-category') || 
+                                  element.classList.contains('achievement-card') ||
+                                  element.classList.contains('publication-card') ||
+                                  element.classList.contains('cert-card') ? 
+                                  index * 100 : 0;
+                    
+                    setTimeout(() => {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, delay);
                 }
             });
+
+            // Animate skill bars
+            animateSkillBars();
+            
+            // Animate numbers
+            animateNumbers();
         };
-        
-        // Initialize elements with opacity 0
-        document.querySelectorAll('.skill-card, .project-card, .contact-card, .contact-form').forEach(element => {
+
+        // Add hover animations for interactive elements
+        const addHoverAnimations = () => {
+            // Project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Achievement cards
+            document.querySelectorAll('.achievement-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Certification cards
+            document.querySelectorAll('.cert-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Publication cards
+            document.querySelectorAll('.publication-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Skill icons
+            document.querySelectorAll('.skill-icon').forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.transform = 'rotate(360deg) scale(1.1)';
+                });
+                
+                icon.addEventListener('mouseleave', function() {
+                    this.style.transform = 'rotate(0) scale(1)';
+                });
+            });
+        };
+
+        // Initialize elements with opacity 0 and initial transforms
+        document.querySelectorAll(
+            '.skill-category, .project-card, .contact-card, .contact-form, ' +
+            '.achievement-card, .publication-card, .cert-card, .section-title'
+        ).forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(30px)';
-            element.style.transition = 'all 0.5s ease';
+            element.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         });
+
+        // Initialize hero elements with special animation
+        document.querySelectorAll('.hero-text, .hero-image').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(50px)';
+            element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+
+        // Initialize skill bars with width 0
+        document.querySelectorAll('.skill-progress').forEach(bar => {
+            bar.style.width = '0';
+            bar.style.transition = 'width 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+
+        // Initialize skill icons with rotation transition
+        document.querySelectorAll('.skill-icon').forEach(icon => {
+            icon.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+
+        // Add hover animations
+        addHoverAnimations();
+
+        // Initialize hero animation on load
+        const initHeroAnimation = () => {
+            const heroText = document.querySelector('.hero-text');
+            const heroImage = document.querySelector('.hero-image');
+            
+            if (heroText && heroImage) {
+                setTimeout(() => {
+                    heroText.style.opacity = '1';
+                    heroText.style.transform = 'translateY(0)';
+                }, 300);
+                
+                setTimeout(() => {
+                    heroImage.style.opacity = '1';
+                    heroImage.style.transform = 'translateY(0)';
+                }, 600);
+            }
+        };
+
+        // Mobile performance optimizations
+        const optimizeForMobile = () => {
+            const isMobile = window.innerWidth <= 576;
+            
+            if (isMobile) {
+                // Reduce animation complexity on mobile
+                document.querySelectorAll('.skill-icon').forEach(icon => {
+                    icon.style.transition = 'transform 0.2s ease';
+                });
+                
+                // Disable heavy animations on mobile
+                const heroTitle = document.querySelector('.hero-text h1');
+                if (heroTitle) {
+                    heroTitle.style.animation = 'none';
+                }
+            }
+        };
+
+        // Initialize everything
+        window.addEventListener('load', () => {
+            initHeroAnimation();
+            optimizeForMobile();
+            animateOnScroll();
+        });
+
+        // Re-optimize on resize
+        window.addEventListener('resize', optimizeForMobile);
         
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
