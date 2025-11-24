@@ -1098,93 +1098,7 @@
             font-size: 0.9rem;
         }
 
-        /* Enhanced Animations */
-        .skill-icon::before {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .skill-icon:hover::before {
-            transform: translateX(100%);
-        }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Reduce motion for users who prefer it */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            
-            .skill-category, .project-card, .contact-card, .contact-form,
-            .achievement-card, .publication-card, .cert-card,
-            .hero-text, .hero-image {
-                transition: none !important;
-                transform: none !important;
-                opacity: 1 !important;
-            }
-            
-            .skill-progress {
-                transition: none !important;
-            }
-        }
-
-        /* Loading animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        /* Add pulse animation to important elements */
-        .hero-text h1 {
-            animation: pulse 2s infinite;
-        }
-
-        .skill-icon {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Tablet optimizations */
-        @media (max-width: 768px) and (min-width: 577px) {
-            .skills-grid, .projects-grid, .achievements-container,
-            .publications-container, .certifications-container {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
-            }
-            
-            .project-card, .achievement-card, .publication-card, .cert-card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Performance optimizations */
-        .skill-icon, .project-card, .achievement-card, .publication-card, .cert-card {
-            will-change: transform;
-        }
-
-        /* Disable animations on low-end devices */
-        @media (max-width: 576px) {
-            .skill-icon, .project-card, .achievement-card, .publication-card, .cert-card {
-                will-change: auto;
-            }
-        }
+        /* Contact */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1497,6 +1411,98 @@
 
             .btn-outline {
                 margin-left: 0;
+            }
+            
+            /* Fix mobile alignment issues */
+            body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+            
+            html {
+                overflow-x: hidden;
+                width: 100%;
+            }
+            
+            .hero {
+                padding: 8rem 2% 4rem;
+            }
+            
+            section {
+                padding: 6rem 2%;
+            }
+            
+            header {
+                padding: 1.5rem 2%;
+            }
+            
+            footer {
+                padding: 3rem 2%;
+            }
+            
+            /* Ensure full width containers */
+            .hero-content,
+            .skills-container,
+            .projects-container,
+            .achievements-container,
+            .publications-container,
+            .certifications-container,
+            .contact-container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+            /* Remove any margins that could cause alignment issues */
+            .hero-text,
+            .section-title,
+            .skills-container,
+            .projects-container,
+            .achievements-container,
+            .publications-container,
+            .certifications-container,
+            .contact-container {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            /* Fix card layouts */
+            .skill-category,
+            .project-card,
+            .achievement-card,
+            .publication-card,
+            .cert-card,
+            .contact-card,
+            .contact-form {
+                width: 100%;
+                margin: 0 0 1.5rem 0;
+            }
+            
+            /* Fix projects grid */
+            .projects-grid {
+                padding: 0;
+                margin: 0;
+                gap: 1rem;
+            }
+            
+            /* Ensure social icons are centered */
+            .social-icons,
+            .social-links,
+            .footer-socials {
+                justify-content: center;
+                width: 100%;
+            }
+            
+            /* Fix contact form */
+            .contact-form {
+                width: 100%;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                box-sizing: border-box;
             }
             
             /* Mobile Contact Styles */
@@ -3418,52 +3424,6 @@
 
         // Add hover animations
         addHoverAnimations();
-
-        // Initialize hero animation on load
-        const initHeroAnimation = () => {
-            const heroText = document.querySelector('.hero-text');
-            const heroImage = document.querySelector('.hero-image');
-            
-            if (heroText && heroImage) {
-                setTimeout(() => {
-                    heroText.style.opacity = '1';
-                    heroText.style.transform = 'translateY(0)';
-                }, 300);
-                
-                setTimeout(() => {
-                    heroImage.style.opacity = '1';
-                    heroImage.style.transform = 'translateY(0)';
-                }, 600);
-            }
-        };
-
-        // Mobile performance optimizations
-        const optimizeForMobile = () => {
-            const isMobile = window.innerWidth <= 576;
-            
-            if (isMobile) {
-                // Reduce animation complexity on mobile
-                document.querySelectorAll('.skill-icon').forEach(icon => {
-                    icon.style.transition = 'transform 0.2s ease';
-                });
-                
-                // Disable heavy animations on mobile
-                const heroTitle = document.querySelector('.hero-text h1');
-                if (heroTitle) {
-                    heroTitle.style.animation = 'none';
-                }
-            }
-        };
-
-        // Initialize everything
-        window.addEventListener('load', () => {
-            initHeroAnimation();
-            optimizeForMobile();
-            animateOnScroll();
-        });
-
-        // Re-optimize on resize
-        window.addEventListener('resize', optimizeForMobile);
         
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
