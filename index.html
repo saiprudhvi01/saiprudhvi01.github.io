@@ -1873,6 +1873,16 @@
                 max-width: 350px;
                 padding: 1.2rem;
             }
+            
+            /* Publications specific tablet fixes */
+            .publications-container {
+                overflow-x: auto;
+            }
+            
+            .publications-grid {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
 
         @media (max-width: 576px) {
@@ -2040,6 +2050,37 @@
                 overflow-x: hidden;
                 padding: 1rem 0;
                 margin: 0;
+            }
+            
+            /* Publications specific mobile fixes */
+            .publications-container {
+                overflow-x: hidden !important;
+            }
+            
+            .publications-grid {
+                flex-direction: column !important;
+                overflow-x: visible !important;
+                padding: 0 !important;
+                gap: 1rem !important;
+            }
+
+            .publication-item {
+                min-width: auto !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 1rem !important;
+                margin-bottom: 1rem;
+            }
+
+            .publication-category {
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .publication-category-title {
+                font-size: 1.1rem !important;
+                padding: 0.5rem !important;
+                text-align: center !important;
             }
             
             /* Ensure social icons are centered */
