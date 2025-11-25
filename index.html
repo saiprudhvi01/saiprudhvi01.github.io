@@ -579,6 +579,219 @@
                 height: 220px;
                 margin-top: 1.5rem;
             }
+
+            .experience-container {
+                gap: 1.8rem;
+                padding: 0 0.5rem;
+            }
+
+            .experience-item {
+                padding: 1.5rem;
+                margin: 0 0.2rem;
+                border-radius: 20px;
+            }
+
+            .experience-date {
+                padding: 1rem;
+            }
+
+            .experience-date h4 {
+                font-size: 1rem;
+            }
+
+            .experience-date p {
+                font-size: 0.85rem;
+            }
+
+            .experience-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .experience-content h4 {
+                font-size: 0.95rem;
+            }
+
+            .experience-content p {
+                font-size: 0.9rem;
+            }
+
+            .experience-tag {
+                font-size: 0.75rem;
+                padding: 0.35rem 0.8rem;
+            }
+        }
+
+        /* Experience */
+        .experience-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .experience-item {
+            display: flex;
+            gap: 2rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.25);
+            border-color: var(--primary);
+        }
+
+        .experience-item:hover::after {
+            opacity: 1;
+        }
+
+        .experience-date {
+            flex: 0 0 180px;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 128, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .experience-date::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: slideShine 3s ease-in-out infinite;
+        }
+
+        .experience-date h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .experience-date p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .experience-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .experience-content h3 {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .experience-content h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .experience-content h4::before {
+            content: '🏢';
+            font-size: 1rem;
+        }
+
+        .experience-content p {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .experience-tag {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.25), rgba(255, 0, 128, 0.15));
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .experience-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+            border-color: var(--primary);
+        }
+
+        .experience-tag:hover::before {
+            width: 100%;
+            height: 100%;
         }
 
         /* Projects */
@@ -1829,6 +2042,54 @@
                 height: 280px;
                 margin-top: 2rem;
             }
+
+            .experience-item {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.8rem;
+                margin: 0 0.5rem;
+            }
+
+            .experience-date {
+                flex: none;
+                width: 100%;
+                text-align: center;
+                padding: 1.2rem;
+                order: -1;
+            }
+
+            .experience-date h4 {
+                font-size: 1.1rem;
+            }
+
+            .experience-date p {
+                font-size: 0.9rem;
+            }
+
+            .experience-content h3 {
+                font-size: 1.3rem;
+                text-align: center;
+            }
+
+            .experience-content h4 {
+                font-size: 1rem;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .experience-content p {
+                font-size: 0.95rem;
+                text-align: center;
+            }
+
+            .experience-tags {
+                justify-content: center;
+            }
+
+            .experience-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -2216,6 +2477,7 @@
         <nav id="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#hackathons">Hackathons</a>
             <a href="#publications">Publications</a>
@@ -2558,6 +2820,78 @@
                         <div class="skill-info">
                             <h4>Kaggle</h4>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-title">
+            <h2>Experience</h2>
+            <p>Professional journey and key roles in AI/ML development and research</p>
+        </div>
+        
+        <div class="experience-container">
+            <!-- Vir Innovations -->
+            <div class="experience-item">
+                <div class="experience-date">
+                    <h4>2025</h4>
+                    <p>Sep - Present</p>
+                </div>
+                <div class="experience-content">
+                    <h3>Software Engineering Intern</h3>
+                    <h4>Vir Innovations (On-Site)</h4>
+                    <p>Built robotics software modules in Python, improving system efficiency and responsiveness.</p>
+                    <div class="experience-tags">
+                        <span class="experience-tag">Python</span>
+                        <span class="experience-tag">Robotics</span>
+                        <span class="experience-tag">Software Engineering</span>
+                        <span class="experience-tag">System Optimization</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ProfilePheme Software Pvt Ltd -->
+            <div class="experience-item">
+                <div class="experience-date">
+                    <h4>2024</h4>
+                    <p>Remote</p>
+                </div>
+                <div class="experience-content">
+                    <h3>AI/ML Intern</h3>
+                    <h4>ProfilePheme Software Pvt Ltd (Remote)</h4>
+                    <p>AI/ML-driven Software Engineer skilled in Python, ML, DL, NLP, and Computer Vision, creating real-time intelligent and scalable AI solutions for software and robotics. Developed an NLP-based Sentiment Analysis system enhanced with Explainable AI (XAI).</p>
+                    <div class="experience-tags">
+                        <span class="experience-tag">Python</span>
+                        <span class="experience-tag">Machine Learning</span>
+                        <span class="experience-tag">Deep Learning</span>
+                        <span class="experience-tag">NLP</span>
+                        <span class="experience-tag">Computer Vision</span>
+                        <span class="experience-tag">XAI</span>
+                        <span class="experience-tag">Sentiment Analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weboin Digital Marketing Agency -->
+            <div class="experience-item">
+                <div class="experience-date">
+                    <h4>2023</h4>
+                    <p>Jul - Aug</p>
+                </div>
+                <div class="experience-content">
+                    <h3>Web Development Intern</h3>
+                    <h4>Weboin Digital Marketing Agency · Remote</h4>
+                    <p>Worked as a Web Developer Intern, focusing on building efficient, user-friendly web applications integrated with intelligent backend capabilities. Developed an intelligent model leveraging Causal AI to predict Alzheimer's disease by identifying key causal factors and delivering accurate, transparent, and explainable insights for early diagnosis and improved clinical decision-making.</p>
+                    <div class="experience-tags">
+                        <span class="experience-tag">Web Development</span>
+                        <span class="experience-tag">Python</span>
+                        <span class="experience-tag">Causal AI</span>
+                        <span class="experience-tag">Data Preprocessing</span>
+                        <span class="experience-tag">Healthcare AI</span>
+                        <span class="experience-tag">Alzheimer's Prediction</span>
                     </div>
                 </div>
             </div>
@@ -4126,7 +4460,7 @@
             const elements = document.querySelectorAll(
                 '.skill-category, .project-card, .contact-card, .contact-form, ' +
                 '.achievement-card, .publication-card, .cert-card, ' +
-                '.section-title, .hero-text, .hero-image'
+                '.experience-item, .section-title, .hero-text, .hero-image'
             );
             
             elements.forEach((element, index) => {
@@ -4197,6 +4531,17 @@
                 });
                 
                 card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Experience items
+            document.querySelectorAll('.experience-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0) scale(1)';
                 });
             });
