@@ -208,6 +208,12 @@
             object-fit: cover;
             border: 5px solid var(--primary);
             box-shadow: 0 0 30px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(52, 152, 219, 0.5);
         }
 
         /* Sections */
@@ -566,6 +572,12 @@
 
             .skill-bar {
                 height: 6px;
+            }
+
+            .profile-img {
+                width: 220px;
+                height: 220px;
+                margin-top: 1.5rem;
             }
         }
 
@@ -1052,6 +1064,7 @@
             background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
             opacity: 0;
             transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
         .achievement-item:hover {
@@ -1257,6 +1270,7 @@
             background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
             opacity: 0;
             transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
         .publication-item:hover {
@@ -1316,6 +1330,9 @@
             font-family: 'Courier New', monospace;
             color: #4CAF50;
             font-weight: 600;
+            word-break: break-all;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .publication-publisher {
@@ -1808,8 +1825,8 @@
             }
 
             .profile-img {
-                width: 250px;
-                height: 250px;
+                width: 280px;
+                height: 280px;
                 margin-top: 2rem;
             }
         }
@@ -2106,6 +2123,11 @@
             .publication-info p {
                 font-size: 0.85rem !important;
             }
+
+            .publication-journal {
+                font-size: 0.75rem !important;
+                line-height: 1.4 !important;
+            }
             
             .publication-icon {
                 width: 40px !important;
@@ -2228,7 +2250,7 @@
             </div>
             
             <div class="hero-image">
-                <img src="https://github.com/saiprudhvi01/saiprudhvi01.github.io/blob/9faf5098dd4cdea92246c6f9f126ce238073f7dc/Sai%20Prudhvi%20Bodempudi%20Profile%20Photo.png?raw=true"      alt="Sai Prudhvi Bodempudi"      style="width: 180px; border-radius: 50%; border: 3px solid #333;">
+                <img src="https://github.com/saiprudhvi01/saiprudhvi01.github.io/blob/9faf5098dd4cdea92246c6f9f126ce238073f7dc/Sai%20Prudhvi%20Bodempudi%20Profile%20Photo.png?raw=true" alt="Sai Prudhvi Bodempudi" class="profile-img">
             </div>
         </div>
     </section>
