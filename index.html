@@ -3893,22 +3893,24 @@
             </div>
             
             <div class="contact-form">
-                <form id="contactForm">
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="afc92e63-8e0d-40ae-bc32-b66f1711c0b9">
+                    <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" required>
+                        <input type="text" name="name" id="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Your Email</label>
-                        <input type="email" id="email" required>
+                        <input type="email" name="email" id="email" required>
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject</label>
-                        <input type="text" id="subject" required>
+                        <input type="text" name="subject_custom" id="subject" placeholder="Enter your subject">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" required></textarea>
+                        <textarea name="message" id="message" required></textarea>
                     </div>
                     <button type="submit" class="submit-btn">
                         <i class="fas fa-paper-plane"></i> Send Message
@@ -3991,20 +3993,55 @@
         // Form submission
         const contactForm = document.getElementById('contactForm');
         
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const submitBtn = contactForm.querySelector('button');
             const originalText = submitBtn.innerHTML;
             
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
             
-            setTimeout(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                contactForm.reset();
-            }, 3000);
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Success message
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent Successfully!';
+                    contactForm.reset();
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 3000);
+                } else {
+                    // Error message
+                    submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error! Try Again';
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 3000);
+                }
+            } catch (error) {
+                // Network error
+                submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Network Error!';
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            }
         });
         
         // Animate skill progress bars
