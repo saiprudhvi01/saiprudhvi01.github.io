@@ -246,7 +246,6 @@
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
-            animation: slideInUp 0.6s ease-out;
         }
 
         .skill-category::before {
@@ -360,79 +359,96 @@
         }
 
         .skill-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: white;
             flex-shrink: 0;
             position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
         }
 
-        /* Programming Languages Icons */
+        .skill-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Professional Skill Icon Colors */
+        .skill-icon.fab.fa-python,
         .skill-icon.python-logo { 
-            background: #3776ab; 
+            background: linear-gradient(135deg, #3776ab, #4B8BBE); 
             color: #FFD43B;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .skill-icon.fab.fa-python { background: #3776ab; color: #FFD43B; }
-        .skill-icon.fas.fa-database.sql { background: #336791; color: #ffffff; }
-
-        /* AI/ML & Data Science Icons */
-        .skill-icon.fas.fa-robot { background: #FF6B6B; color: #ffffff; }
-        .skill-icon.fas.fa-network-wired { background: #FF6B35; color: #ffffff; }
-        .skill-icon.fas.fa-comments { background: #4A90E2; color: #ffffff; }
-        .skill-icon.fas.fa-eye { background: #FF6F00; color: #ffffff; }
-        .skill-icon.fas.fa-microchip { background: #00C853; color: #ffffff; }
-        .skill-icon.fas.fa-magic { background: #9C27B0; color: #ffffff; }
-        .skill-icon.fas.fa-chart-pie { background: #2196F3; color: #ffffff; }
-        .skill-icon.fas.fa-project-diagram { background: #E91E63; color: #ffffff; }
-
-        /* Frameworks & Libraries Icons */
-        .skill-icon.fas.fa-flask { background: #000000; color: #ffffff; }
-        .skill-icon.fas.fa-water { background: #FF4B4B; color: #ffffff; }
-        .skill-icon.fas.fa-tensor { background: #FF6F00; color: #ffffff; }
-        .skill-icon.fas.fa-fire { background: #EE4C2C; color: #ffffff; }
-
-        /* Robotics & Sensor Systems Icons */
-        .skill-icon.fas.fa-satellite-dish { background: #00BCD4; color: #ffffff; }
-        .skill-icon.fas.fa-map-marked-alt { background: #4CAF50; color: #ffffff; }
-        .skill-icon.fas.fa-cube { background: #795548; color: #ffffff; }
-
-        /* Databases Icons */
-        .skill-icon.fas.fa-elephant { background: #336791; color: #ffffff; }
-        .skill-icon.fas.fa-database.sqlite { background: #003B57; color: #ffffff; }
-
-        /* Tools & Platforms Icons */
-        .skill-icon.fab.fa-git-alt { background: #F05032; color: #ffffff; }
-        .skill-icon.fab.fa-github { background: #24292e; color: #ffffff; }
-        .skill-icon.fab.fa-linux { background: #FCC624; color: #000000; }
-        .skill-icon.fas.fa-book { background: #F37726; color: #ffffff; }
-        .skill-icon.fas.fa-code.vscode { background: #007ACC; color: #ffffff; }
-        .skill-icon.fas.fa-chart-line.kaggle { background: #20BEFF; color: #ffffff; }
-
-        .skill-icon::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transform: rotate(45deg);
-            animation: iconShine 3s ease-in-out infinite;
+        .skill-icon.fas.fa-database.sql,
+        .skill-icon.fas.fa-elephant { 
+            background: linear-gradient(135deg, #336791, #4A90E2); 
+            color: #ffffff;
         }
 
-        @keyframes iconShine {
-            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        /* AI/ML & Data Science - Professional Blue/Green Palette */
+        .skill-icon.fas.fa-robot,
+        .skill-icon.fas.fa-microchip,
+        .skill-icon.fas.fa-magic { 
+            background: linear-gradient(135deg, #2c3e50, #3498db); 
+            color: #ffffff;
         }
+        .skill-icon.fas.fa-network-wired,
+        .skill-icon.fas.fa-project-diagram { 
+            background: linear-gradient(135deg, #34495e, #2ecc71); 
+            color: #ffffff;
+        }
+        .skill-icon.fas.fa-comments,
+        .skill-icon.fas.fa-chart-pie { 
+            background: linear-gradient(135deg, #2980b9, #3498db); 
+            color: #ffffff;
+        }
+        .skill-icon.fas.fa-eye { 
+            background: linear-gradient(135deg, #c0392b, #e74c3c); 
+            color: #ffffff;
+        }
+
+        /* Frameworks & Libraries - Professional Gray/Blue Palette */
+        .skill-icon.fas.fa-flask,
+        .skill-icon.fas.fa-water,
+        .skill-icon.fas.fa-tensor,
+        .skill-icon.fas.fa-fire { 
+            background: linear-gradient(135deg, #34495e, #2c3e50); 
+            color: #ffffff;
+        }
+
+        /* Robotics & Systems - Professional Green/Gray Palette */
+        .skill-icon.fas.fa-satellite-dish,
+        .skill-icon.fas.fa-map-marked-alt,
+        .skill-icon.fas.fa-cube { 
+            background: linear-gradient(135deg, #27ae60, #2ecc71); 
+            color: #ffffff;
+        }
+
+        /* Tools & Platforms - Professional Dark Palette */
+        .skill-icon.fab.fa-git-alt,
+        .skill-icon.fab.fa-github,
+        .skill-icon.fas.fa-code.vscode { 
+            background: linear-gradient(135deg, #2c3e50, #34495e); 
+            color: #ffffff;
+        }
+        .skill-icon.fab.fa-linux { 
+            background: linear-gradient(135deg, #f39c12, #f1c40f); 
+            color: #2c3e50;
+        }
+        .skill-icon.fas.fa-book,
+        .skill-icon.fas.fa-chart-line.kaggle { 
+            background: linear-gradient(135deg, #34495e, #2c3e50); 
+            color: #ffffff;
+        }
+
 
         .skill-info {
             flex: 1;
@@ -940,162 +956,589 @@
             color: var(--accent);
         }
 
-        /* Hackathons Section */
+        /* Enhanced Achievements Section */
         .achievements-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            margin: 0 -5%;
         }
 
-        .achievement-card {
-            background-color: var(--darker);
-            padding: 2rem;
-            border-radius: 15px;
+        .achievement-category {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .achievement-category-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 128, 0.1));
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-category-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: slideShine 3s ease-in-out infinite;
+        }
+
+        .achievement-category-title i {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .achievements-grid {
             display: flex;
             gap: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: fit-content;
+            padding: 0 5%;
         }
 
-        .achievement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .achievement-icon {
-            font-size: 2.5rem;
-            color: #FFD700;
+        .achievement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-width: 350px;
+            max-width: 400px;
             flex-shrink: 0;
         }
 
-        .achievement-content h3 {
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .achievement-item:hover::before {
+            opacity: 1;
+        }
+
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        .achievement-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .achievement-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .achievement-info h4 {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 0.5rem;
-            color: #ffffff;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .achievement-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
         }
 
         .achievement-org {
-            color: #4A90E2;
+            color: #FFD700;
             font-weight: 600;
-            margin-bottom: 0.3rem;
         }
 
         .achievement-date {
             color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.85rem;
         }
 
         .achievement-desc {
-            color: #ccc;
-            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-top: 0.5rem;
         }
 
-        /* Publications Section */
+        .achievement-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .achievement-link:hover {
+            color: var(--accent);
+        }
+
+        /* Scrollbar styling */
+        .achievements-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .achievements-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .achievements-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .achievements-container::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Enhanced Publications Section */
         .publications-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            margin: 0 -5%;
         }
 
-        .publication-card {
-            background-color: var(--darker);
-            padding: 2rem;
-            border-radius: 15px;
+        .publication-category {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .publication-category-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 128, 0.1));
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-category-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: slideShine 3s ease-in-out infinite;
+        }
+
+        .publication-category-title i {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .publications-grid {
             display: flex;
             gap: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: fit-content;
+            padding: 0 5%;
         }
 
-        .publication-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .publication-icon {
-            font-size: 2.5rem;
-            color: #2196F3;
+        .publication-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-width: 350px;
+            max-width: 400px;
             flex-shrink: 0;
         }
 
-        .publication-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: #ffffff;
+        .publication-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .publication-item:hover::before {
+            opacity: 1;
+        }
+
+        .publication-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        .publication-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .publication-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .publication-info h4 {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
             line-height: 1.4;
         }
 
+        .publication-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
         .publication-journal {
+            font-family: 'Courier New', monospace;
             color: #4CAF50;
             font-weight: 600;
-            margin-bottom: 0.3rem;
-            font-family: 'Courier New', monospace;
         }
 
         .publication-publisher {
             color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.85rem;
         }
 
         .publication-link {
-            color: #2196F3;
+            color: var(--primary);
             text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            gap: 0.3rem;
+            transition: var(--transition);
+            margin-top: 0.5rem;
         }
 
         .publication-link:hover {
-            color: #64B5F6;
+            color: var(--accent);
         }
 
-        /* Certifications Section */
+        /* Scrollbar styling */
+        .publications-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .publications-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .publications-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .publications-container::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Enhanced Certifications Section */
         .certifications-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            margin: 0 -5%;
         }
 
-        .cert-card {
-            background-color: var(--darker);
-            padding: 2rem;
-            border-radius: 15px;
+        .cert-category {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .cert-category-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 128, 0.1));
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-category-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: slideShine 3s ease-in-out infinite;
+        }
+
+        .cert-category-title i {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .certs-grid {
             display: flex;
             gap: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: fit-content;
+            padding: 0 5%;
         }
 
-        .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .cert-icon {
-            font-size: 2.5rem;
-            color: #FF6B35;
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-width: 300px;
+            max-width: 350px;
             flex-shrink: 0;
         }
 
-        .cert-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
+        .cert-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .cert-issuer {
-            color: #4A90E2;
+        .cert-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .cert-item:hover::before {
+            opacity: 1;
+        }
+
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        .cert-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .cert-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cert-info h4 {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
             font-weight: 600;
+        }
+
+        .cert-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
             margin-bottom: 0.3rem;
         }
 
-        .cert-date {
-            color: #888;
-            font-size: 0.9rem;
+        .cert-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .cert-link:hover {
+            color: var(--accent);
+        }
+
+        /* Scrollbar styling */
+        .certifications-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .certifications-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .certifications-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .certifications-container::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
         }
 
         /* Contact */
@@ -1392,6 +1835,44 @@
             .hero-text h2 {
                 font-size: 1.5rem;
             }
+            
+            /* Tablet responsive for new sections */
+            .achievements-container,
+            .publications-container,
+            .certifications-container {
+                padding: 1rem 0;
+                margin: 0;
+            }
+
+            .achievement-category,
+            .publication-category,
+            .cert-category {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .achievement-category-title,
+            .publication-category-title,
+            .cert-category-title {
+                font-size: 1.4rem;
+                padding: 0.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .achievements-grid,
+            .publications-grid,
+            .certs-grid {
+                padding: 0;
+                gap: 1.2rem;
+            }
+
+            .achievement-item,
+            .publication-item,
+            .cert-item {
+                min-width: 300px;
+                max-width: 350px;
+                padding: 1.2rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1484,6 +1965,81 @@
                 padding: 0;
                 margin: 0;
                 gap: 1rem;
+            }
+            
+            /* Mobile responsive for new sections */
+            .achievement-category,
+            .publication-category,
+            .cert-category {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .achievement-category-title,
+            .publication-category-title,
+            .cert-category-title {
+                font-size: 1.2rem;
+                padding: 0.6rem;
+                text-align: center;
+            }
+
+            .achievements-grid,
+            .publications-grid,
+            .certs-grid {
+                flex-direction: column;
+                padding: 0;
+                gap: 1rem;
+                overflow-x: visible;
+            }
+
+            .achievement-item,
+            .publication-item,
+            .cert-item {
+                min-width: auto;
+                max-width: 100%;
+                padding: 0.8rem;
+                border-radius: 10px;
+            }
+
+            .achievement-item:hover,
+            .publication-item:hover,
+            .cert-item:hover {
+                transform: translateY(-3px) scale(1.01);
+            }
+
+            .achievement-icon,
+            .publication-icon,
+            .cert-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .achievement-info h4,
+            .publication-info h4,
+            .cert-info h4 {
+                font-size: 1rem;
+            }
+
+            .achievement-info p,
+            .publication-info p,
+            .cert-info p {
+                font-size: 0.85rem;
+            }
+
+            .achievement-link,
+            .publication-link,
+            .cert-link {
+                font-size: 0.8rem;
+            }
+
+            /* Fix horizontal scrolling on mobile */
+            .achievements-container,
+            .publications-container,
+            .certifications-container {
+                overflow-x: hidden;
+                padding: 1rem 0;
+                margin: 0;
             }
             
             /* Ensure social icons are centered */
@@ -1629,8 +2185,9 @@
                         </div>
                         <div class="skill-info">
                             <h4>Python</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="95%"></div>
+                            <div class="project-count">
+                                <span class="count-number">35+</span>
+                                <span class="count-label">Projects</span>
                             </div>
                         </div>
                     </div>
@@ -1638,8 +2195,8 @@
                         <div class="skill-icon fas fa-database"></div>
                         <div class="skill-info">
                             <h4>SQL</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85%"></div>
+                            <div class="project-count">
+                                <span class="count-number">8</span>
                             </div>
                         </div>
                     </div>
@@ -1657,8 +2214,8 @@
                         <div class="skill-icon fas fa-brain"></div>
                         <div class="skill-info">
                             <h4>Machine Learning</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="92%"></div>
+                            <div class="project-count">
+                                <span class="count-number">15</span>
                             </div>
                         </div>
                     </div>
@@ -1666,8 +2223,8 @@
                         <div class="skill-icon fas fa-network-wired"></div>
                         <div class="skill-info">
                             <h4>Deep Learning</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90%"></div>
+                            <div class="project-count">
+                                <span class="count-number">10</span>
                             </div>
                         </div>
                     </div>
@@ -1675,8 +2232,8 @@
                         <div class="skill-icon fas fa-language"></div>
                         <div class="skill-info">
                             <h4>NLP</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="88%"></div>
+                            <div class="project-count">
+                                <span class="count-number">7</span>
                             </div>
                         </div>
                     </div>
@@ -1684,8 +2241,8 @@
                         <div class="skill-icon fas fa-eye"></div>
                         <div class="skill-info">
                             <h4>Computer Vision</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85%"></div>
+                            <div class="project-count">
+                                <span class="count-number">6</span>
                             </div>
                         </div>
                     </div>
@@ -1693,8 +2250,8 @@
                         <div class="skill-icon fas fa-microchip"></div>
                         <div class="skill-info">
                             <h4>LLMs</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="87%"></div>
+                            <div class="project-count">
+                                <span class="count-number">5</span>
                             </div>
                         </div>
                     </div>
@@ -1702,8 +2259,8 @@
                         <div class="skill-icon fas fa-wand-magic-sparkles"></div>
                         <div class="skill-info">
                             <h4>Prompt Engineering</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="83%"></div>
+                            <div class="project-count">
+                                <span class="count-number">4</span>
                             </div>
                         </div>
                     </div>
@@ -1711,8 +2268,8 @@
                         <div class="skill-icon fas fa-chart-pie"></div>
                         <div class="skill-info">
                             <h4>Explainable AI</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="80%"></div>
+                            <div class="project-count">
+                                <span class="count-number">3</span>
                             </div>
                         </div>
                     </div>
@@ -1720,8 +2277,8 @@
                         <div class="skill-icon fas fa-project-diagram"></div>
                         <div class="skill-info">
                             <h4>Causal AI</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="78%"></div>
+                            <div class="project-count">
+                                <span class="count-number">2</span>
                             </div>
                         </div>
                     </div>
@@ -1741,8 +2298,8 @@
                         </div>
                         <div class="skill-info">
                             <h4>Flask</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="88%"></div>
+                            <div class="project-count">
+                                <span class="count-number">9</span>
                             </div>
                         </div>
                     </div>
@@ -1752,8 +2309,8 @@
                         </div>
                         <div class="skill-info">
                             <h4>Streamlit</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90%"></div>
+                            <div class="project-count">
+                                <span class="count-number">11</span>
                             </div>
                         </div>
                     </div>
@@ -1763,8 +2320,8 @@
                         </div>
                         <div class="skill-info">
                             <h4>TensorFlow</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85%"></div>
+                            <div class="project-count">
+                                <span class="count-number">6</span>
                             </div>
                         </div>
                     </div>
@@ -1774,8 +2331,8 @@
                         </div>
                         <div class="skill-info">
                             <h4>PyTorch</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="82%"></div>
+                            <div class="project-count">
+                                <span class="count-number">5</span>
                             </div>
                         </div>
                     </div>
@@ -1795,8 +2352,8 @@
                         </div>
                         <div class="skill-info">
                             <h4>LiDAR</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="75%"></div>
+                            <div class="project-count">
+                                <span class="count-number">1</span>
                             </div>
                         </div>
                     </div>
@@ -1806,8 +2363,8 @@
                         </div>
                         <div class="skill-info">
                             <h4>SLAM</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="72%"></div>
+                            <div class="project-count">
+                                <span class="count-number">1</span>
                             </div>
                         </div>
                     </div>
@@ -1817,8 +2374,8 @@
                         </div>
                         <div class="skill-info">
                             <h4>Webots</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="70%"></div>
+                            <div class="project-count">
+                                <span class="count-number">1</span>
                             </div>
                         </div>
                     </div>
@@ -1838,8 +2395,8 @@
                         </div>
                         <div class="skill-info">
                             <h4>PostgreSQL</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="83%"></div>
+                            <div class="project-count">
+                                <span class="count-number">5</span>
                             </div>
                         </div>
                     </div>
@@ -1848,8 +2405,8 @@
                         </div>
                         <div class="skill-info">
                             <h4>SQLite</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="87%"></div>
+                            <div class="project-count">
+                                <span class="count-number">7</span>
                             </div>
                         </div>
                     </div>
@@ -1869,9 +2426,6 @@
                         </div>
                         <div class="skill-info">
                             <h4>Git</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90%"></div>
-                            </div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1880,9 +2434,6 @@
                         </div>
                         <div class="skill-info">
                             <h4>GitHub</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="92%"></div>
-                            </div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1891,9 +2442,6 @@
                         </div>
                         <div class="skill-info">
                             <h4>Linux</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85%"></div>
-                            </div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1902,9 +2450,6 @@
                         </div>
                         <div class="skill-info">
                             <h4>Jupyter Notebook</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="94%"></div>
-                            </div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1912,9 +2457,6 @@
                         </div>
                         <div class="skill-info">
                             <h4>VS Code</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="93%"></div>
-                            </div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1922,9 +2464,6 @@
                         </div>
                         <div class="skill-info">
                             <h4>Kaggle</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="88%"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1945,7 +2484,7 @@
             <div class="projects-grid">
                     <!-- Sign-Aura -->
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sign Aura" class="project-img">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sign Aura" class="project-img">
                         <div class="project-content">
                             <h3>Sign Aura</h3>
                             <p>Advanced sign language detection and interpretation system using computer vision.</p>
@@ -1964,7 +2503,7 @@
                     
                     <!-- Career-Recommendation-System -->
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Career Recommendation" class="project-img">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Career Recommendation" class="project-img">
                         <div class="project-content">
                             <h3>Career Recommendation System</h3>
                             <p>AI-powered career guidance system suggesting optimal career paths based on skills and preferences.</p>
@@ -2040,7 +2579,7 @@
                     
                     <!-- EMAIL-SPAM-CLASSIFIER -->
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Email Spam Classifier" class="project-img">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Email Spam Classifier" class="project-img">
                         <div class="project-content">
                             <h3>Email Spam Classifier</h3>
                             <p>Machine learning system for automatically classifying and filtering spam emails.</p>
@@ -2122,7 +2661,7 @@
                     
                     <!-- Dental-Carries -->
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dental Carries" class="project-img">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dental Carries" class="project-img">
                         <div class="project-content">
                             <h3>Dental Carries Detection</h3>
                             <p>AI system for detecting dental caries from dental X-rays and images.</p>
@@ -2279,7 +2818,7 @@
                     
                     <!-- KARE-Bus-Management-System -->
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Bus Management System" class="project-img">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Bus Management System" class="project-img">
                         <div class="project-content">
                             <h3>KARE Bus Management System</h3>
                             <p>Comprehensive bus transportation management system for educational institutions.</p>
@@ -2298,7 +2837,7 @@
                     
                     <!-- Grievance-Management-System -->
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Grievance Management" class="project-img">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Grievance Management" class="project-img">
                         <div class="project-content">
                             <h3>Grievance Management System</h3>
                             <p>Platform for managing and resolving public grievances and complaints efficiently.</p>
@@ -2799,35 +3338,59 @@
         </div>
     </section>
 
-    <!-- Hackathons Section -->
-    <section class="hackathons" id="hackathons">
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
         <div class="section-title">
             <h2>Hackathons & Achievements</h2>
             <p>Competition wins and hackathon participation showcasing problem-solving skills</p>
         </div>
         
         <div class="achievements-container">
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class="fas fa-trophy"></i>
+            <!-- Global Hackathons -->
+            <div class="achievement-category">
+                <div class="achievement-category-title">
+                    <i class="fas fa-globe"></i>
+                    Global Hackathons
                 </div>
-                <div class="achievement-content">
-                    <h3>Infosys Global Hackathon – Second Place</h3>
-                    <p class="achievement-org">Infosys STP Campus, Hyderabad</p>
-                    <p class="achievement-date">Oct 2025</p>
-                    <p class="achievement-desc">Developed a Causal-AI powered multi-disease prediction system using X-rays with CNN and sequential model architecture.</p>
+                <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h4>Infosys Global Hackathon – Second Place</h4>
+                            <p class="achievement-org">Infosys STP Campus, Hyderabad</p>
+                            <p class="achievement-date">Oct 2025</p>
+                            <p class="achievement-desc">Developed a Causal-AI powered multi-disease prediction system using X-rays with CNN and sequential model architecture.</p>
+                            <a href="https://drive.google.com/file/d/1PwRdvM8aO3J1wqYbdeTzfttRsaXS2Q9C/view" target="_blank" class="achievement-link">
+                                <i class="fas fa-certificate"></i> View Certification
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class="fas fa-medal"></i>
+            <!-- University Competitions -->
+            <div class="achievement-category">
+                <div class="achievement-category-title">
+                    <i class="fas fa-university"></i>
+                    University Competitions
                 </div>
-                <div class="achievement-content">
-                    <h3>IBM ICE Day Hackathon – First Place</h3>
-                    <p class="achievement-org">Kalasalingam University, Madurai</p>
-                    <p class="achievement-date">Apr 2023</p>
-                    <p class="achievement-desc">Built an autonomous navigation system using offline OSM maps with LiDAR obstacle detection and SLAM.</p>
+                <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h4>IBM ICE Day Hackathon – First Place</h4>
+                            <p class="achievement-org">Kalasalingam University, Madurai</p>
+                            <p class="achievement-date">Apr 2023</p>
+                            <p class="achievement-desc">Built an autonomous navigation system using offline OSM maps with LiDAR obstacle detection and SLAM.</p>
+                            <a href="https://drive.google.com/file/d/1ABe88hP5p8uo04HPkhk3H9p0Acm0_rFb/view" target="_blank" class="achievement-link">
+                                <i class="fas fa-certificate"></i> View Certification
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2841,17 +3404,26 @@
         </div>
         
         <div class="publications-container">
-            <div class="publication-card">
-                <div class="publication-icon">
-                    <i class="fas fa-file-alt"></i>
+            <!-- IEEE Conference Publications -->
+            <div class="publication-category">
+                <div class="publication-category-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    IEEE Conference Publications
                 </div>
-                <div class="publication-content">
-                    <h3>Alzheimer Disease Prediction Using Recursive Feature Elimination and Artificial Neural Network</h3>
-                    <p class="publication-journal">DOI: 10.1109/NMITCON58196.2023.10276170</p>
-                    <p class="publication-publisher">IEEE, Google Scholar Indexed</p>
-                    <a href="https://doi.org/10.1109/NMITCON58196.2023.10276170" target="_blank" class="publication-link">
-                        <i class="fas fa-external-link-alt"></i> View Publication
-                    </a>
+                <div class="publications-grid">
+                    <div class="publication-item">
+                        <div class="publication-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="publication-info">
+                            <h4>Alzheimer Disease Prediction Using Recursive Feature Elimination and Artificial Neural Network</h4>
+                            <p class="publication-journal">DOI: 10.1109/NMITCON58196.2023.10276170</p>
+                            <p class="publication-publisher">IEEE, Google Scholar Indexed</p>
+                            <a href="https://doi.org/10.1109/NMITCON58196.2023.10276170" target="_blank" class="publication-link">
+                                <i class="fas fa-external-link-alt"></i> View Publication
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2865,229 +3437,346 @@
         </div>
         
         <div class="certifications-container">
-            <!-- IIT Certifications -->
-            <div class="cert-card">
-                <div class="cert-icon">
+            <!-- IIT & Premier Institute Certifications -->
+            <div class="cert-category">
+                <div class="cert-category-title">
                     <i class="fas fa-university"></i>
+                    IIT & Premier Institute Certifications
                 </div>
-                <div class="cert-content">
-                    <h3>Global Entrepreneurship Summit</h3>
-                    <p class="cert-issuer">Indian Institute of Technology, Kharagpur</p>
-                    <p class="cert-date">Dec 2024</p>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Global Entrepreneurship Summit</h4>
+                            <p>IIT Kharagpur</p>
+                            <p>Dec 2024</p>
+                            <a href="https://drive.google.com/file/d/1ryEXsEIgGb_1BNI8FO5b8mp3clmAmoxs/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Innovation Cafe Hackathon</h4>
+                            <p>MNIT Jaipur</p>
+                            <p>Dec 2024</p>
+                            <a href="https://drive.google.com/file/d/1mM9OMTDCVKzS417pMKD_Psy-emYEA5p9/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Pitch On Pitch – Innovation Challenge</h4>
+                            <p>IIITDM Kancheepuram</p>
+                            <p>Dec 2024</p>
+                            <a href="https://drive.google.com/file/d/12UQwH7-PvdCHd0maOMSJwoCpDCAfYhZy/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Start Up Pitch</h4>
+                            <p>IIT Mandi</p>
+                            <p>Dec 2024</p>
+                            <a href="https://drive.google.com/file/d/1z2idw3lS3iTKXv631gpYGZvUuXWIQimI/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Innovation Cafe Hackathon</h3>
-                    <p class="cert-issuer">Malaviya National Institute of Technology Jaipur</p>
-                    <p class="cert-date">Dec 2024</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-microphone"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Pitch On Pitch – Innovation Challenge</h3>
-                    <p class="cert-issuer">IIIT Design & Manufacturing Kancheepuram</p>
-                    <p class="cert-date">Dec 2024</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Start Up Pitch</h3>
-                    <p class="cert-issuer">Indian Institute of Technology, Mandi</p>
-                    <p class="cert-date">Dec 2024</p>
-                </div>
-            </div>
-            
-            <!-- Hackathon Certifications -->
-            <div class="cert-card">
-                <div class="cert-icon">
+            <!-- Hackathon & Competition Certifications -->
+            <div class="cert-category">
+                <div class="cert-category-title">
                     <i class="fas fa-code"></i>
+                    Hackathon & Competition Certifications
                 </div>
-                <div class="cert-content">
-                    <h3>The Blue Bit Hackathon 2.0</h3>
-                    <p class="cert-issuer">Pimpri Chinchwad College of Engineering Pune</p>
-                    <p class="cert-date">Dec 2024</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Vashisht Hackathon 2024 – NexusAeon</h3>
-                    <p class="cert-issuer">IIIT Design & Manufacturing Kancheepuram</p>
-                    <p class="cert-date">Dec 2024</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Certificate of Achievement – E-Summit '24 Hackathon</h3>
-                    <p class="cert-issuer">IIIT Design & Manufacturing Kancheepuram</p>
-                    <p class="cert-date">Mar 2024</p>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>The Blue Bit Hackathon 2.0</h4>
+                            <p>PCCOE Pune</p>
+                            <p>Dec 2024</p>
+                            <a href="https://drive.google.com/file/d/1f6kVMQPu-Llxd6Agzo0zlmlIDwjCHt5g/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Vashisht Hackathon 2024 – NexusAeon</h4>
+                            <p>IIITDM Kancheepuram</p>
+                            <p>Dec 2024</p>
+                            <a href="https://drive.google.com/file/d/1BZl8Z31kA6pn7cUsM800HMfGQUGShVzU/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>E-Summit '24 Hackathon</h4>
+                            <p>IIITDM Kancheepuram</p>
+                            <p>Mar 2024</p>
+                            <a href="https://drive.google.com/file/d/1JA0g_BtQ5t4RSpoN6CnzRJxxRglzpzkp/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Microsoft Certifications -->
-            <div class="cert-card">
-                <div class="cert-icon">
+            <div class="cert-category">
+                <div class="cert-category-title">
                     <i class="fab fa-microsoft"></i>
+                    Microsoft Certifications
                 </div>
-                <div class="cert-content">
-                    <h3>Build a Natural Language Processing Solution with Azure AI Language</h3>
-                    <p class="cert-issuer">Microsoft</p>
-                    <p class="cert-date">Feb 2024</p>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Azure AI Language NLP</h4>
+                            <p>Microsoft</p>
+                            <p>Feb 2024</p>
+                            <a href="https://drive.google.com/file/d/1Zb9n0AY4fFj927j4MryTQSVx2X8D8KYm/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Microsoft AI Skills Challenge</h4>
+                            <p>Microsoft</p>
+                            <p>Jan 2024</p>
+                            <a href="https://drive.google.com/file/d/1fCbBpqDkQ_XDx-WPTw1si6msTNT6pKJq/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Azure AI Fundamentals (AI-900)</h4>
+                            <p>Microsoft</p>
+                            <p>Apr 2021</p>
+                            <a href="https://drive.google.com/file/d/1hcgT708OHTsMcNepFhz5DKP09ieryvIN/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Microsoft Azure Fundamentals (AZ-900)</h4>
+                            <p>Microsoft</p>
+                            <p>Apr 2021</p>
+                            <a href="https://drive.google.com/file/d/13qzH2-Fqsp6pFb6mn9i7EwbnWrssykqm/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fab fa-microsoft"></i>
+            <!-- Cloud & Platform Certifications -->
+            <div class="cert-category">
+                <div class="cert-category-title">
+                    <i class="fas fa-cloud"></i>
+                    Cloud & Platform Certifications
                 </div>
-                <div class="cert-content">
-                    <h3>Microsoft AI Skills Challenge</h3>
-                    <p class="cert-issuer">Microsoft</p>
-                    <p class="cert-date">Jan 2024</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fab fa-microsoft"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Azure AI Fundamentals (AI-900) Exam Cram</h3>
-                    <p class="cert-issuer">Microsoft</p>
-                    <p class="cert-date">Apr 2021</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fab fa-microsoft"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Microsoft Azure Fundamentals (AZ-900)</h3>
-                    <p class="cert-issuer">Microsoft</p>
-                    <p class="cert-date">Apr 2021</p>
-                </div>
-            </div>
-            
-            <!-- Oracle Certification -->
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fab fa-oracle"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Oracle Cloud Infrastructure 2023 AI Certified Foundations Associate</h3>
-                    <p class="cert-issuer">Oracle</p>
-                    <p class="cert-date">Dec 2023 · Expires Dec 2025</p>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fab fa-oracle"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Oracle Cloud Infrastructure AI Foundations</h4>
+                            <p>Oracle</p>
+                            <p>Dec 2023 · Expires Dec 2025</p>
+                            <a href="https://drive.google.com/file/d/1vu1V7I-z8nDdfQTDMFxxYDK6XgFiFT9k/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Academic & Programming Certifications -->
-            <div class="cert-card">
-                <div class="cert-icon">
+            <div class="cert-category">
+                <div class="cert-category-title">
                     <i class="fas fa-graduation-cap"></i>
+                    Academic & Programming Certifications
                 </div>
-                <div class="cert-content">
-                    <h3>Introduction to Data Science</h3>
-                    <p class="cert-issuer">Infosys Springboard</p>
-                    <p class="cert-date">Aug 2024</p>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Introduction to Data Science</h4>
+                            <p>Infosys Springboard</p>
+                            <p>Aug 2024</p>
+                            <a href="https://drive.google.com/file/d/1VltXzSrZWtW0yjcrzUVZLGMlhUN-sQ2v/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Developing Soft Skills and Personality</h4>
+                            <p>NPTEL</p>
+                            <p>Jul 2024</p>
+                            <a href="https://drive.google.com/file/d/1_5xgMCKpjP42n8TqRjlRzWkVJ0Y3U14G/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Soft Skills</h4>
+                            <p>NPTEL</p>
+                            <p>Jul 2024</p>
+                            <a href="https://drive.google.com/file/d/1Lcg_SEyNZM7XOvDtZUcGT3Am-qSs8-iK/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Python Programming</h4>
+                            <p>Codegnan</p>
+                            <p>Jun 2024</p>
+                            <a href="https://drive.google.com/file/d/1XUm868Cj5H8-wVQIkJrUAn-Q2kPz_nmJ/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Developing Soft Skills and Personality</h3>
-                    <p class="cert-issuer">NPTEL</p>
-                    <p class="cert-date">Jul 2024</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Soft Skills</h3>
-                    <p class="cert-issuer">NPTEL</p>
-                    <p class="cert-date">Jul 2024</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fab fa-python"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Python Programming</h3>
-                    <p class="cert-issuer">Codegnan</p>
-                    <p class="cert-date">Jun 2024</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
+            <!-- Programming & Coding Platforms -->
+            <div class="cert-category">
+                <div class="cert-category-title">
                     <i class="fas fa-code-branch"></i>
+                    Programming & Coding Platforms
                 </div>
-                <div class="cert-content">
-                    <h3>CodeChef Programming Course</h3>
-                    <p class="cert-issuer">CodeChef</p>
-                    <p class="cert-date">Jul 2023</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Code Combat – Coding Ninjas</h3>
-                    <p class="cert-issuer">Coding Ninjas</p>
-                    <p class="cert-date">Oct 2022</p>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>CodeChef Programming Course</h4>
+                            <p>CodeChef</p>
+                            <p>Jul 2023</p>
+                            <a href="https://drive.google.com/file/d/1-LCvX7Edr-o8U6SDLoyk6zCmmBj8L_0K/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Code Combat – Coding Ninjas</h4>
+                            <p>Coding Ninjas</p>
+                            <p>Oct 2022</p>
+                            <a href="https://drive.google.com/file/d/1kgkf9Y6PyE1QyOUGQwynY437D7ODMDAh/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Conference & Competition -->
-            <div class="cert-card">
-                <div class="cert-icon">
+            <div class="cert-category">
+                <div class="cert-category-title">
                     <i class="fas fa-globe"></i>
+                    Conference & Competition
                 </div>
-                <div class="cert-content">
-                    <h3>NationBuilding (India's Largest Case Study Competition)</h3>
-                    <p class="cert-issuer">NationBuilding</p>
-                    <p class="cert-date">Feb 2024</p>
-                </div>
-            </div>
-            
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-presentation"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>NMITCON 2023 – IEEE International Conference Participation & Paper Presentation</h3>
-                    <p class="cert-issuer">IEEE</p>
-                    <p class="cert-date">Sep 2023</p>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>NationBuilding Case Study Competition</h4>
+                            <p>NationBuilding</p>
+                            <p>Feb 2024</p>
+                            <a href="https://drive.google.com/file/d/11RHewYrOkZ3fLkoe7mWABwufDFg6j0HM/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>NMITCON 2023 IEEE Conference</h4>
+                            <p>IEEE</p>
+                            <p>Sep 2023</p>
+                            <a href="https://drive.google.com/file/d/1Nn5FxBmNRjhaiqWx0ECZe7vNqa7JjSyR/view" target="_blank" class="cert-link">
+                                <i class="fas fa-certificate"></i> View Credential
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3185,7 +3874,7 @@
                 <a href="tel:+917893277617" class="footer-social"><i class="fas fa-phone"></i></a>
             </div>
             
-            <p class="copyright">© 2023 Sai Prudhvi Bodempudi. All rights reserved.</p>
+            <p class="copyright">© 2025 Sai Prudhvi Bodempudi. All rights reserved.</p>
         </div>
     </footer>
 
@@ -3382,51 +4071,35 @@
                 });
             });
 
-            // Skill icons
+            // Skill icons - subtle professional hover
             document.querySelectorAll('.skill-icon').forEach(icon => {
                 icon.addEventListener('mouseenter', function() {
-                    this.style.transform = 'rotate(360deg) scale(1.1)';
+                    this.style.transform = 'translateY(-2px)';
                 });
                 
                 icon.addEventListener('mouseleave', function() {
-                    this.style.transform = 'rotate(0) scale(1)';
+                    this.style.transform = 'translateY(0)';
                 });
             });
         };
 
-        // Initialize elements with opacity 0 and initial transforms
-        document.querySelectorAll(
-            '.skill-category, .project-card, .contact-card, .contact-form, ' +
-            '.achievement-card, .publication-card, .cert-card, .section-title'
-        ).forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        });
+        // Elements are now visible immediately without animations
 
-        // Initialize hero elements with special animation
-        document.querySelectorAll('.hero-text, .hero-image').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(50px)';
-            element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-        });
-
-        // Initialize skill bars with width 0
+        // Initialize skill bars with full width (no animation)
         document.querySelectorAll('.skill-progress').forEach(bar => {
-            bar.style.width = '0';
-            bar.style.transition = 'width 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            const progress = bar.getAttribute('data-progress');
+            bar.style.width = progress;
         });
 
-        // Initialize skill icons with rotation transition
+        // Initialize skill icons with professional transition
         document.querySelectorAll('.skill-icon').forEach(icon => {
-            icon.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            icon.style.transition = 'all 0.2s ease';
         });
 
         // Add hover animations
         addHoverAnimations();
         
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
+        // No scroll animations needed - elements are visible immediately
     </script>
 </body>
 </html>
