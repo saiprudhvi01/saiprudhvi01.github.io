@@ -1,3 +1,1 @@
-🔗 My Portfolio
-
-Check out my personal portfolio here: saiprudhvi01.github.io
+Check out my personal portfolio here: https://saiprudhvi01.github.io
