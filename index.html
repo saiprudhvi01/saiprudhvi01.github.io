@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Prudhvi | AI/ML Engineer</title>
+    <title>Sai Prudhvi | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -795,17 +795,306 @@
         }
 
         /* Projects */
+        .projects-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 1200px) {
+            .projects-categories {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.2rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .projects-categories {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1rem;
+                padding: 0 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-categories {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects-categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+                padding: 0 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-categories {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .projects-categories {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+                padding: 0 0.2rem;
+            }
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .category-card {
+                padding: 1.2rem;
+                min-height: 100px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-card {
+                padding: 1rem;
+                min-height: 90px;
+                justify-content: center;
+            }
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-card.active {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 128, 0.1));
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .category-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .category-header {
+                gap: 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-header {
+                gap: 0.2rem;
+            }
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .category-title {
+                font-size: 1.1rem;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-title {
+                font-size: 1rem;
+                gap: 0.5rem;
+            }
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .category-icon {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-icon {
+                font-size: 1.2rem;
+            }
+        }
+
+        .category-count {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(255, 0, 128, 0.2));
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 212, 255, 0.2);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .category-count {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-count {
+                padding: 0.25rem 0.6rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .category-count {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.65rem;
+            }
+        }
+
+
+        .category-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .category-description {
+                font-size: 0.8rem;
+                margin-top: 0.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-description {
+                font-size: 0.75rem;
+                margin-top: 0.3rem;
+            }
+        }
+
         .projects-container {
+            display: none;
             overflow-x: auto;
-            padding: 2rem 0;
-            margin: 0 -5%;
+            padding: 2rem 1rem;
+            margin: 0 -1rem;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .projects-container {
+                padding: 1.5rem 0.5rem;
+                margin: 0 -0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-container {
+                padding: 1rem 0.25rem;
+                margin: 0 -0.25rem;
+            }
+        }
+
+        .projects-container.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .projects-grid {
             display: flex;
             gap: 2rem;
             min-width: fit-content;
-            padding: 0 5%;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 1200px) {
+            .projects-grid {
+                gap: 1.5rem;
+                padding: 0 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid {
+                gap: 0.8rem;
+                padding: 0 0.25rem;
+            }
         }
 
         .project-card {
@@ -842,45 +1131,6 @@
             background: var(--primary-dark);
         }
 
-        /* Category Headings */
-        .category-heading {
-            font-size: 1.8rem;
-            color: var(--primary);
-            text-align: center;
-            margin: 3rem 0 2rem 0;
-            padding: 1rem;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 128, 0.1));
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            animation: glowPulse 3s ease-in-out infinite;
-        }
-
-        .category-heading::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
-            border-radius: 10px;
-            opacity: 0;
-            z-index: -1;
-            animation: borderGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(255, 0, 128, 0.5); }
-        }
-
-        @keyframes borderGlow {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 0.7; }
-        }
 
         /* Enhanced Project Card Styles */
         .project-card {
@@ -894,6 +1144,34 @@
             max-width: 350px;
             flex-shrink: 0;
             transform-style: preserve-3d;
+        }
+
+        @media (max-width: 1200px) {
+            .project-card {
+                min-width: 280px;
+                max-width: 320px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-card {
+                min-width: 260px;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-card {
+                min-width: 240px;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .project-card {
+                min-width: 220px;
+                max-width: 260px;
+            }
         }
 
         .project-card::before {
@@ -1043,10 +1321,21 @@
 
         /* Mobile Responsive Styles */
         @media (max-width: 768px) {
-            .category-heading {
-                font-size: 1.4rem;
-                margin: 2rem 0 1.5rem 0;
-                padding: 0.8rem;
+            .projects-categories {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .category-card {
+                padding: 1rem;
+            }
+
+            .category-title {
+                font-size: 1.1rem;
+            }
+
+            .category-icon {
+                font-size: 1.2rem;
             }
 
             .projects-container {
@@ -1083,10 +1372,26 @@
         }
 
         @media (max-width: 480px) {
-            .category-heading {
-                font-size: 1.2rem;
-                margin: 1.5rem 0 1rem 0;
-                padding: 0.6rem;
+            .projects-categories {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .category-card {
+                padding: 0.8rem;
+            }
+
+            .category-title {
+                font-size: 1rem;
+            }
+
+            .category-icon {
+                font-size: 1.1rem;
+            }
+
+            .category-count {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.6rem;
             }
 
             .projects-grid {
@@ -1761,6 +2066,532 @@
             color: var(--accent);
         }
 
+        /* Certifications */
+        .certifications-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 1200px) {
+            .certifications-categories {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.2rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .certifications-categories {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1rem;
+                padding: 0 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .certifications-categories {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .certifications-categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+                padding: 0 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .certifications-categories {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .certifications-categories {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+                padding: 0 0.2rem;
+            }
+        }
+
+        .cert-category-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .cert-category-card {
+                padding: 1.2rem;
+                min-height: 100px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cert-category-card {
+                padding: 1rem;
+                min-height: 90px;
+                justify-content: center;
+            }
+        }
+
+        .cert-category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .cert-category-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .cert-category-card:hover::before {
+            opacity: 1;
+        }
+
+        .cert-category-card.active {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 128, 0.1));
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .cert-category-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .cert-category-header {
+                gap: 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cert-category-header {
+                gap: 0.2rem;
+            }
+        }
+
+        .cert-category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .cert-category-title {
+                font-size: 1.1rem;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cert-category-title {
+                font-size: 1rem;
+                gap: 0.5rem;
+            }
+        }
+
+        .cert-category-icon {
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .cert-category-icon {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cert-category-icon {
+                font-size: 1.2rem;
+            }
+        }
+
+        .cert-category-count {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(255, 0, 128, 0.2));
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 212, 255, 0.2);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .cert-category-count {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cert-category-count {
+                padding: 0.25rem 0.6rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .cert-category-count {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.65rem;
+            }
+        }
+
+        .cert-category-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .cert-category-description {
+                font-size: 0.8rem;
+                margin-top: 0.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cert-category-description {
+                font-size: 0.75rem;
+                margin-top: 0.3rem;
+            }
+        }
+
+        .cert-category-container {
+            display: none;
+            overflow-x: auto;
+            padding: 2rem 1rem;
+            margin: 0 -1rem;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .cert-category-container {
+                padding: 1.5rem 0.5rem;
+                margin: 0 -0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cert-category-container {
+                padding: 1rem 0.25rem;
+                margin: 0 -0.25rem;
+            }
+        }
+
+        .cert-category-container.active {
+            display: block;
+        }
+
+        /* Achievements */
+        .achievements-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 1200px) {
+            .achievements-categories {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.2rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .achievements-categories {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1rem;
+                padding: 0 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .achievements-categories {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .achievements-categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+                padding: 0 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievements-categories {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .achievements-categories {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+                padding: 0 0.2rem;
+            }
+        }
+
+        .achievement-category-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .achievement-category-card {
+                padding: 1.2rem;
+                min-height: 100px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievement-category-card {
+                padding: 1rem;
+                min-height: 90px;
+                justify-content: center;
+            }
+        }
+
+        .achievement-category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .achievement-category-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .achievement-category-card:hover::before {
+            opacity: 1;
+        }
+
+        .achievement-category-card.active {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 128, 0.1));
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .achievement-category-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .achievement-category-header {
+                gap: 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievement-category-header {
+                gap: 0.2rem;
+            }
+        }
+
+        .achievement-category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .achievement-category-title {
+                font-size: 1.1rem;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievement-category-title {
+                font-size: 1rem;
+                gap: 0.5rem;
+            }
+        }
+
+        .achievement-category-icon {
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .achievement-category-icon {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievement-category-icon {
+                font-size: 1.2rem;
+            }
+        }
+
+        .achievement-category-count {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(255, 0, 128, 0.2));
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 212, 255, 0.2);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .achievement-category-count {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievement-category-count {
+                padding: 0.25rem 0.6rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .achievement-category-count {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.65rem;
+            }
+        }
+
+        .achievement-category-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .achievement-category-description {
+                font-size: 0.8rem;
+                margin-top: 0.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievement-category-description {
+                font-size: 0.75rem;
+                margin-top: 0.3rem;
+            }
+        }
+
+        .achievement-category-container {
+            display: none;
+            overflow-x: auto;
+            padding: 2rem 1rem;
+            margin: 0 -1rem;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .achievement-category-container {
+                padding: 1.5rem 0.5rem;
+                margin: 0 -0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievement-category-container {
+                padding: 1rem 0.25rem;
+                margin: 0 -0.25rem;
+            }
+        }
+
+        .achievement-category-container.active {
+            display: block;
+        }
+
         /* Scrollbar styling */
         .certifications-container::-webkit-scrollbar {
             height: 8px;
@@ -1974,15 +2805,67 @@
             width: 2.5rem;
             height: 2.5rem;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-social::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .footer-social i {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            z-index: 1;
         }
 
         .footer-social:hover {
-            background-color: var(--primary);
+            transform: translateY(-3px) scale(1.1);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 128, 0.15));
+            border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .footer-social:hover::before {
+            opacity: 1;
+        }
+
+        .footer-social:hover i {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* Specific icon colors for better branding */
+        .footer-social[href*="linkedin"]:hover i {
+            color: #0077B5;
+        }
+
+        .footer-social[href*="github"]:hover i {
+            color: #6CC644;
+        }
+
+        .footer-social[href*="mailto"]:hover i {
+            color: #EA4335;
+        }
+
+        .footer-social[href*="tel"]:hover i {
+            color: #25D366;
         }
 
         .copyright {
@@ -2008,19 +2891,31 @@
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
-            z-index: 999;
+            z-index: 1000;
         }
 
-        .back-to-top.active {
+        .back-to-top.visible {
             opacity: 1;
             visibility: visible;
         }
 
         .back-to-top:hover {
             background-color: var(--primary-dark);
+            transform: translateY(-3px);
         }
 
-        /* Responsive */
+        /* Typing Animation */
+        .cursor {
+            color: var(--primary);
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
         @media (max-width: 992px) {
             .hero-content {
                 flex-direction: column;
@@ -2495,7 +3390,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Hi, I'm <span>Sai Prudhvi</span></h1>
-                <h2>AI/ML Engineer</h2>
+                <h2><span id="typing-text"></span><span class="cursor">|</span></h2>
                 <p>Computer Science Engineer specializing in AI/ML with a passion for building intelligent systems that solve real-world problems through innovative machine learning solutions.</p>
                 
                 <div class="social-icons">
@@ -2838,7 +3733,7 @@
             <div class="experience-item">
                 <div class="experience-date">
                     <h4>2025</h4>
-                    <p>Sep - Present</p>
+                    <p>01 Sep - Present</p>
                 </div>
                 <div class="experience-content">
                     <h3>Software Engineering Intern</h3>
@@ -2853,15 +3748,15 @@
                 </div>
             </div>
 
-            <!-- Pheme Software Pvt Ltd -->
+            <!-- ProfilePheme Software Pvt Ltd -->
             <div class="experience-item">
                 <div class="experience-date">
                     <h4>2024</h4>
-                    <p>Remote</p>
+                    <p>01 May - 30 June</p>
                 </div>
                 <div class="experience-content">
                     <h3>AI/ML Intern</h3>
-                    <h4>Pheme Software Pvt Ltd (Remote)</h4>
+                    <h4>ProfilePheme Software Pvt Ltd (Remote)</h4>
                     <p>AI/ML-driven Software Engineer skilled in Python, ML, DL, NLP, and Computer Vision, creating real-time intelligent and scalable AI solutions for software and robotics. Developed an NLP-based Sentiment Analysis system enhanced with Explainable AI (XAI).</p>
                     <div class="experience-tags">
                         <span class="experience-tag">Python</span>
@@ -2879,7 +3774,7 @@
             <div class="experience-item">
                 <div class="experience-date">
                     <h4>2023</h4>
-                    <p>Jul - Aug</p>
+                    <p>Jul - Aug · 2 mos</p>
                 </div>
                 <div class="experience-content">
                     <h3>Web Development Intern</h3>
@@ -2905,9 +3800,119 @@
             <p>Explore my diverse work across AI/ML, Web Development, Cybersecurity, and more</p>
         </div>
         
-        <h3 class="category-heading">🤖 Artificial Intelligence & Machine Learning</h3>
+        <div class="projects-categories">
+            <div class="category-card" onclick="toggleCategory('ai-ml')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🤖</span>
+                        <span>AI/ML Projects</span>
+                    </div>
+                </div>
+                <span class="category-count">8</span>
+                <p class="category-description">Click to explore machine learning and AI projects</p>
+            </div>
+
+            <div class="category-card" onclick="toggleCategory('medical-ai')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🏥</span>
+                        <span>Medical AI</span>
+                    </div>
+                </div>
+                <span class="category-count">9</span>
+                <p class="category-description">Click to view healthcare and medical AI projects</p>
+            </div>
+
+            <div class="category-card" onclick="toggleCategory('web-dev')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🌐</span>
+                        <span>Web Development</span>
+                    </div>
+                </div>
+                <span class="category-count">7</span>
+                <p class="category-description">Click to browse web applications and digital solutions</p>
+            </div>
+
+            <div class="category-card" onclick="toggleCategory('cybersecurity')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🛡️</span>
+                        <span>Cybersecurity</span>
+                    </div>
+                </div>
+                <span class="category-count">4</span>
+                <p class="category-description">Click to explore security tools and threat detection</p>
+            </div>
+
+            <div class="category-card" onclick="toggleCategory('data-science')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">📊</span>
+                        <span>Data Science</span>
+                    </div>
+                </div>
+                <span class="category-count">4</span>
+                <p class="category-description">Click to discover analytics and data projects</p>
+            </div>
+
+            <div class="category-card" onclick="toggleCategory('education')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🎓</span>
+                        <span>Education</span>
+                    </div>
+                </div>
+                <span class="category-count">2</span>
+                <p class="category-description">Click to view educational tools and platforms</p>
+            </div>
+
+            <div class="category-card" onclick="toggleCategory('agriculture')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🌾</span>
+                        <span>Agriculture</span>
+                    </div>
+                </div>
+                <span class="category-count">1</span>
+                <p class="category-description">Click to explore farming solutions</p>
+            </div>
+
+            <div class="category-card" onclick="toggleCategory('nlp')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">💬</span>
+                        <span>NLP</span>
+                    </div>
+                </div>
+                <span class="category-count">5</span>
+                <p class="category-description">Click to view language processing projects</p>
+            </div>
+
+            <div class="category-card" onclick="toggleCategory('computer-vision')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">👁️</span>
+                        <span>Computer Vision</span>
+                    </div>
+                </div>
+                <span class="category-count">2</span>
+                <p class="category-description">Click to explore visual recognition projects</p>
+            </div>
+
+            <div class="category-card" onclick="toggleCategory('special-apps')">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">⚙️</span>
+                        <span>Cpp Application</span>
+                    </div>
+                </div>
+                <span class="category-count">1</span>
+                <p class="category-description">Click to view specialized applications</p>
+            </div>
+        </div>
         <!-- AI/ML Projects -->
-        <div class="projects-container">
+        <div id="ai-ml" class="projects-container">
             <div class="projects-grid">
                     <!-- Sign-Aura -->
                     <div class="project-card">
@@ -3044,9 +4049,7 @@
                 </div>
         </div>
 
-        <h3 class="category-heading">🏥 Medical AI & Healthcare</h3>
-        <!-- Medical AI Projects -->
-        <div class="projects-container">
+        <div id="medical-ai" class="projects-container">
             <div class="projects-grid">
                     <!-- Alzheimer-Disease-Prediction-with-Causal-AI -->
                     <div class="project-card">
@@ -3202,9 +4205,7 @@
                 </div>
         </div>
 
-        <h3 class="category-heading">🌐 Web Development & Applications</h3>
-        <!-- Web Development Projects -->
-        <div class="projects-container">
+        <div id="web-dev" class="projects-container">
             <div class="projects-grid">
                     <!-- Campus-Event-Management-System -->
                     <div class="project-card">
@@ -3340,9 +4341,7 @@
                 </div>
         </div>
 
-        <h3 class="category-heading">🛡️ Cybersecurity & Threat Detection</h3>
-        <!-- Cybersecurity Projects -->
-        <div class="projects-container">
+        <div id="cybersecurity" class="projects-container">
             <div class="projects-grid">
                     <!-- zta-readiness-assessment -->
                     <div class="project-card">
@@ -3422,9 +4421,7 @@
                 </div>
         </div>
 
-        <h3 class="category-heading">📊 Data Science & Analytics</h3>
-        <!-- Data Science Projects -->
-        <div class="projects-container">
+        <div id="data-science" class="projects-container">
             <div class="projects-grid">
                     <!-- Water-Quality-Prediction -->
                     <div class="project-card">
@@ -3523,9 +4520,7 @@
                 </div>
         </div>
 
-        <h3 class="category-heading">🎓 Education & Learning Tools</h3>
-        <!-- Education Projects -->
-        <div class="projects-container">
+        <div id="education" class="projects-container">
             <div class="projects-grid">
                     <!-- Grade-Calculator-KARE -->
                     <div class="project-card">
@@ -3567,9 +4562,7 @@
                 </div>
         </div>
 
-        <h3 class="category-heading">🌾 Agriculture & Farming Solutions</h3>
-        <!-- Agriculture Projects -->
-        <div class="projects-container">
+        <div id="agriculture" class="projects-container">
             <div class="projects-grid">
                     <!-- smart-farming-assistant -->
                     <div class="project-card">
@@ -3592,9 +4585,7 @@
                 </div>
         </div>
 
-        <h3 class="category-heading">💬 NLP & Language Processing</h3>
-        <!-- NLP Projects -->
-        <div class="projects-container">
+        <div id="nlp" class="projects-container">
             <div class="projects-grid">
                     <!-- Tanglish-Sentimental-Analyzer-using-Streamlit -->
                     <div class="project-card">
@@ -3693,9 +4684,7 @@
                 </div>
         </div>
 
-        <h3 class="category-heading">👁️ Computer Vision & Sign Language</h3>
-        <!-- Computer Vision Projects -->
-        <div class="projects-container">
+        <div id="computer-vision" class="projects-container">
             <div class="projects-grid">
                                         
                     <!-- Sign-Language-Detection -->
@@ -3738,9 +4727,7 @@
                 </div>
         </div>
 
-        <h3 class="category-heading">⚙️ Special Applications & Tools</h3>
-        <!-- Special Applications Projects -->
-        <div class="projects-container">
+        <div id="special-apps" class="projects-container">
             <div class="projects-grid">
                     <!-- qt-camera-application -->
                     <div class="project-card">
@@ -3772,8 +4759,31 @@
             <p>Competition wins and hackathon participation showcasing problem-solving skills</p>
         </div>
         
-        <div class="achievements-container">
-            <!-- Global Hackathons -->
+        <div class="achievements-categories">
+            <div class="achievement-category-card" onclick="toggleAchievementCategory('global-hackathons')">
+                <div class="achievement-category-header">
+                    <div class="achievement-category-title">
+                        <span class="achievement-category-icon">🌍</span>
+                        <span>Global Hackathons</span>
+                    </div>
+                </div>
+                <span class="achievement-category-count">1</span>
+                <p class="achievement-category-description">Click to explore global competition achievements</p>
+            </div>
+
+            <div class="achievement-category-card" onclick="toggleAchievementCategory('university-competitions')">
+                <div class="achievement-category-header">
+                    <div class="achievement-category-title">
+                        <span class="achievement-category-icon">🏫</span>
+                        <span>University Competitions</span>
+                    </div>
+                </div>
+                <span class="achievement-category-count">1</span>
+                <p class="achievement-category-description">Click to view university-level achievements</p>
+            </div>
+        </div>
+        <!-- Global Hackathons -->
+        <div id="global-hackathons" class="achievement-category-container">
             <div class="achievement-category">
                 <div class="achievement-category-title">
                     <i class="fas fa-globe"></i>
@@ -3796,8 +4806,10 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- University Competitions -->
+        </div>
+        
+        <!-- University Competitions -->
+        <div id="university-competitions" class="achievement-category-container">
             <div class="achievement-category">
                 <div class="achievement-category-title">
                     <i class="fas fa-university"></i>
@@ -3863,8 +4875,86 @@
             <p>Professional certifications, hackathon participations, and continuous learning achievements</p>
         </div>
         
-        <div class="certifications-container">
+        <div class="certifications-categories">
+            <div class="cert-category-card" onclick="toggleCertCategory('iit-premier')">
+                <div class="cert-category-header">
+                    <div class="cert-category-title">
+                        <span class="cert-category-icon">🏛️</span>
+                        <span>IIT & Premier Institutes</span>
+                    </div>
+                    <span class="cert-category-count">4</span>
+                </div>
+                <p class="cert-category-description">Click to explore premier institute certifications</p>
+            </div>
+
+            <div class="cert-category-card" onclick="toggleCertCategory('hackathon')">
+                <div class="cert-category-header">
+                    <div class="cert-category-title">
+                        <span class="cert-category-icon">💻</span>
+                        <span>Hackathons & Competitions</span>
+                    </div>
+                </div>
+                <span class="cert-category-count">3</span>
+                <p class="cert-category-description">Click to view hackathon achievements</p>
+            </div>
+
+            <div class="cert-category-card" onclick="toggleCertCategory('microsoft')">
+                <div class="cert-category-header">
+                    <div class="cert-category-title">
+                        <span class="cert-category-icon">🪟</span>
+                        <span>Microsoft Certifications</span>
+                    </div>
+                </div>
+                <span class="cert-category-count">4</span>
+                <p class="cert-category-description">Click to browse Microsoft credentials</p>
+            </div>
+
+            <div class="cert-category-card" onclick="toggleCertCategory('cloud')">
+                <div class="cert-category-header">
+                    <div class="cert-category-title">
+                        <span class="cert-category-icon">☁️</span>
+                        <span>Cloud & Platform</span>
+                    </div>
+                </div>
+                <span class="cert-category-count">1</span>
+                <p class="cert-category-description">Click to explore cloud certifications</p>
+            </div>
+
+            <div class="cert-category-card" onclick="toggleCertCategory('academic')">
+                <div class="cert-category-header">
+                    <div class="cert-category-title">
+                        <span class="cert-category-icon">🎓</span>
+                        <span>Academic & Programming</span>
+                    </div>
+                </div>
+                <span class="cert-category-count">4</span>
+                <p class="cert-category-description">Click to view academic achievements</p>
+            </div>
+
+            <div class="cert-category-card" onclick="toggleCertCategory('coding')">
+                <div class="cert-category-header">
+                    <div class="cert-category-title">
+                        <span class="cert-category-icon">👨‍💻</span>
+                        <span>Programming Platforms</span>
+                    </div>
+                </div>
+                <span class="cert-category-count">2</span>
+                <p class="cert-category-description">Click to browse coding platform certs</p>
+            </div>
+
+            <div class="cert-category-card" onclick="toggleCertCategory('conference')">
+                <div class="cert-category-header">
+                    <div class="cert-category-title">
+                        <span class="cert-category-icon">🌍</span>
+                        <span>Conferences & Events</span>
+                    </div>
+                </div>
+                <span class="cert-category-count">2</span>
+                <p class="cert-category-description">Click to view conference participations</p>
+            </div>
+        </div>
             <!-- IIT & Premier Institute Certifications -->
+        <div id="iit-premier" class="cert-category-container">
             <div class="cert-category">
                 <div class="cert-category-title">
                     <i class="fas fa-university"></i>
@@ -3928,8 +5018,10 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Hackathon & Competition Certifications -->
+        </div>
+        
+        <!-- Hackathon & Competition Certifications -->
+        <div id="hackathon" class="cert-category-container">
             <div class="cert-category">
                 <div class="cert-category-title">
                     <i class="fas fa-code"></i>
@@ -3979,8 +5071,10 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Microsoft Certifications -->
+        </div>
+        
+        <!-- Microsoft Certifications -->
+        <div id="microsoft" class="cert-category-container">
             <div class="cert-category">
                 <div class="cert-category-title">
                     <i class="fab fa-microsoft"></i>
@@ -4044,8 +5138,10 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Cloud & Platform Certifications -->
+        </div>
+        
+        <!-- Cloud & Platform Certifications -->
+        <div id="cloud" class="cert-category-container">
             <div class="cert-category">
                 <div class="cert-category-title">
                     <i class="fas fa-cloud"></i>
@@ -4067,8 +5163,10 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Academic & Programming Certifications -->
+        </div>
+        
+        <!-- Academic & Programming Certifications -->
+        <div id="academic" class="cert-category-container">
             <div class="cert-category">
                 <div class="cert-category-title">
                     <i class="fas fa-graduation-cap"></i>
@@ -4132,8 +5230,10 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Programming & Coding Platforms -->
+        </div>
+        
+        <!-- Programming & Coding Platforms -->
+        <div id="coding" class="cert-category-container">
             <div class="cert-category">
                 <div class="cert-category-title">
                     <i class="fas fa-code-branch"></i>
@@ -4169,8 +5269,10 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Conference & Competition -->
+        </div>
+        
+        <!-- Conference & Competition -->
+        <div id="conference" class="cert-category-container">
             <div class="cert-category">
                 <div class="cert-category-title">
                     <i class="fas fa-globe"></i>
@@ -4573,6 +5675,168 @@
 
         // Add hover animations
         addHoverAnimations();
+        
+        // Toggle project categories
+        function toggleCategory(categoryId) {
+            const container = document.getElementById(categoryId);
+            const categoryCards = document.querySelectorAll('.category-card');
+            const allContainers = document.querySelectorAll('.projects-container');
+            
+            // Close all other containers
+            allContainers.forEach(cont => {
+                if (cont.id !== categoryId) {
+                    cont.classList.remove('active');
+                }
+            });
+            
+            // Remove active class from all cards
+            categoryCards.forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Toggle current container
+            container.classList.toggle('active');
+            
+            // Add active class to clicked card
+            const clickedCard = document.querySelector(`[onclick="toggleCategory('${categoryId}')"]`);
+            if (clickedCard) {
+                clickedCard.classList.add('active');
+            }
+            
+            // Scroll to projects if opening
+            if (container.classList.contains('active')) {
+                setTimeout(() => {
+                    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+        
+        // Toggle certification categories
+        function toggleCertCategory(categoryId) {
+            const container = document.getElementById(categoryId);
+            const categoryCards = document.querySelectorAll('.cert-category-card');
+            const allContainers = document.querySelectorAll('.cert-category-container');
+            
+            // Close all other containers
+            allContainers.forEach(cont => {
+                if (cont.id !== categoryId) {
+                    cont.classList.remove('active');
+                }
+            });
+            
+            // Remove active class from all cards
+            categoryCards.forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Toggle current container
+            container.classList.toggle('active');
+            
+            // Add active class to clicked card
+            const clickedCard = document.querySelector(`[onclick="toggleCertCategory('${categoryId}')"]`);
+            if (clickedCard) {
+                clickedCard.classList.add('active');
+            }
+            
+            // Scroll to certifications if opening
+            if (container.classList.contains('active')) {
+                setTimeout(() => {
+                    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+        
+        // Toggle achievement categories
+        function toggleAchievementCategory(categoryId) {
+            const container = document.getElementById(categoryId);
+            const categoryCards = document.querySelectorAll('.achievement-category-card');
+            const allContainers = document.querySelectorAll('.achievement-category-container');
+            
+            // Close all other containers
+            allContainers.forEach(cont => {
+                if (cont.id !== categoryId) {
+                    cont.classList.remove('active');
+                }
+            });
+            
+            // Remove active class from all cards
+            categoryCards.forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Toggle current container
+            container.classList.toggle('active');
+            
+            // Add active class to clicked card
+            const clickedCard = document.querySelector(`[onclick="toggleAchievementCategory('${categoryId}')"]`);
+            if (clickedCard) {
+                clickedCard.classList.add('active');
+            }
+            
+            // Scroll to achievements if opening
+            if (container.classList.contains('active')) {
+                setTimeout(() => {
+                    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+        
+        // Make functions global
+        window.toggleCategory = toggleCategory;
+        window.toggleCertCategory = toggleCertCategory;
+        window.toggleAchievementCategory = toggleAchievementCategory;
+
+        // Typing Animation
+        const titles = ["AI/ML Engineer", "Software Engineer"];
+        let titleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        let deletingSpeed = 50;
+        let pauseDuration = 2000;
+        let typingTimeout;
+
+        function typeText() {
+            const currentTitle = titles[titleIndex];
+            const typingElement = document.getElementById('typing-text');
+            
+            if (!typingElement) return;
+
+            if (isDeleting) {
+                typingElement.textContent = currentTitle.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = deletingSpeed;
+            } else {
+                typingElement.textContent = currentTitle.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentTitle.length) {
+                // Finished typing, pause before deleting
+                isDeleting = true;
+                typingSpeed = pauseDuration;
+            } else if (isDeleting && charIndex === 0) {
+                // Finished deleting, move to next title
+                isDeleting = false;
+                titleIndex = (titleIndex + 1) % titles.length;
+                typingSpeed = 500; // Pause before typing next title
+            }
+
+            typingTimeout = setTimeout(typeText, typingSpeed);
+        }
+
+        // Start typing animation when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(typeText, 1000); // Start after 1 second
+        });
+
+        // Clean up timeout when page unloads
+        window.addEventListener('beforeunload', function() {
+            if (typingTimeout) {
+                clearTimeout(typingTimeout);
+            }
+        });
         
         // No scroll animations needed - elements are visible immediately
     </script>
