@@ -269,41 +269,135 @@
         }
 
         /* Mobile Responsive Styles for Neural Network */
-        @media (max-width: 1200px) {
-            .neural-network {
-                transform: scale(0.9);
-                transform-origin: center;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .neural-network {
-                transform: scale(0.85);
-                transform-origin: center;
-            }
-        }
-
         @media (max-width: 768px) {
             .neural-network {
-                max-height: 800px;
-                overflow-x: auto;
-                overflow-y: visible;
-                transform: scale(0.75);
-                transform-origin: center;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px;
+                overflow: visible;
             }
 
             .neural-layer {
-                position: absolute !important;
-                height: 100%;
-                padding: 10px 0;
+                position: relative !important;
+                width: 100% !important;
+                left: 0 !important;
+                height: auto;
+                padding: 15px;
+                background: rgba(52, 152, 219, 0.1);
+                border-radius: 15px;
+                border: 2px solid var(--primary);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             .layer-label {
                 width: 100%;
                 text-align: center;
-                margin-bottom: 8px;
-                font-size: 0.9rem;
+                margin-bottom: 15px;
+                font-size: 1.1rem;
                 color: var(--primary);
+                font-weight: 600;
+            }
+
+            .neuron {
+                width: 60px;
+                height: 60px;
+                min-width: 60px;
+                min-height: 60px;
+                margin: 5px;
+                position: relative;
+            }
+
+            .skill-name {
+                font-size: 0.7rem;
+            }
+
+            .synapses {
+                display: none;
+            }
+
+            .neurons-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .neural-network {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 8px;
+            }
+
+            .neural-layer {
+                position: relative !important;
+                width: 100% !important;
+                left: 0 !important;
+                height: auto;
+                padding: 12px;
+                background: rgba(52, 152, 219, 0.1);
+                border-radius: 12px;
+                border: 2px solid var(--primary);
+            }
+
+            .layer-label {
+                font-size: 1rem;
+                margin-bottom: 12px;
+            }
+
+            .neuron {
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+                min-height: 50px;
+                margin: 4px;
+            }
+
+            .skill-name {
+                font-size: 0.6rem;
+            }
+
+            .synapses {
+                display: none;
+            }
+
+            .neurons-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .neural-network {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                padding: 6px;
+            }
+
+            .neural-layer {
+                position: relative !important;
+                width: 100% !important;
+                left: 0 !important;
+                height: auto;
+                padding: 10px;
+                background: rgba(52, 152, 219, 0.1);
+                border-radius: 10px;
+                border: 2px solid var(--primary);
+            }
+
+            .layer-label {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
             }
 
             .neuron {
@@ -311,7 +405,7 @@
                 height: 45px;
                 min-width: 45px;
                 min-height: 45px;
-                margin: 2px;
+                margin: 3px;
             }
 
             .skill-name {
@@ -319,141 +413,15 @@
             }
 
             .synapses {
-                display: block;
+                display: none;
             }
 
-            .neural-layer.input-layer {
-                left: 2%;
-                width: 18%;
-            }
-
-            .neural-layer.hidden-layer-1 {
-                left: 25%;
-                width: 18%;
-            }
-
-            .neural-layer.hidden-layer-2 {
-                left: 48%;
-                width: 18%;
-            }
-
-            .neural-layer.output-layer {
-                left: 71%;
-                width: 18%;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .neural-network {
-                max-height: 900px;
-                overflow-x: auto;
-                overflow-y: visible;
-                transform: scale(0.65);
-                transform-origin: center;
-            }
-
-            .neural-layer {
-                position: absolute !important;
-                height: 100%;
-                padding: 8px 0;
-            }
-
-            .neuron {
-                width: 38px;
-                height: 38px;
-                min-width: 38px;
-                min-height: 38px;
-                margin: 1px;
-            }
-
-            .skill-name {
-                font-size: 0.5rem;
-            }
-
-            .layer-label {
-                font-size: 0.8rem;
-                margin-bottom: 6px;
-            }
-
-            .synapses {
-                display: block;
-            }
-
-            .neural-layer.input-layer {
-                left: 1%;
-                width: 20%;
-            }
-
-            .neural-layer.hidden-layer-1 {
-                left: 26%;
-                width: 20%;
-            }
-
-            .neural-layer.hidden-layer-2 {
-                left: 51%;
-                width: 20%;
-            }
-
-            .neural-layer.output-layer {
-                left: 76%;
-                width: 20%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .neural-network {
-                max-height: 1000px;
-                overflow-x: auto;
-                overflow-y: visible;
-                transform: scale(0.55);
-                transform-origin: center;
-            }
-
-            .neural-layer {
-                position: absolute !important;
-                height: 100%;
-                padding: 6px 0;
-            }
-
-            .neuron {
-                width: 32px;
-                height: 32px;
-                min-width: 32px;
-                min-height: 32px;
-                margin: 1px;
-            }
-
-            .skill-name {
-                font-size: 0.45rem;
-            }
-
-            .layer-label {
-                font-size: 0.75rem;
-                margin-bottom: 5px;
-            }
-
-            .synapses {
-                display: block;
-            }
-
-            .neural-layer.input-layer {
-                left: 0%;
-                width: 22%;
-            }
-
-            .neural-layer.hidden-layer-1 {
-                left: 28%;
-                width: 22%;
-            }
-
-            .neural-layer.hidden-layer-2 {
-                left: 56%;
-                width: 22%;
-            }
-
-            .neural-layer.output-layer {
-                left: 84%;
-                width: 22%;
+            .neurons-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 6px;
+                width: 100%;
             }
         }
 
@@ -787,58 +755,50 @@
             }
 
             .neural-network {
-                max-height: 1100px;
-                overflow-x: auto;
-                overflow-y: visible;
-                transform: scale(0.45);
-                transform-origin: center;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 5px;
             }
 
             .neural-layer {
-                position: absolute !important;
-                height: 100%;
-                padding: 5px 0;
-            }
-
-            .neuron {
-                width: 28px;
-                height: 28px;
-                min-width: 28px;
-                min-height: 28px;
-                margin: 1px;
-            }
-
-            .skill-name {
-                font-size: 0.4rem;
+                position: relative !important;
+                width: 100% !important;
+                left: 0 !important;
+                height: auto;
+                padding: 8px;
+                background: rgba(52, 152, 219, 0.1);
+                border-radius: 8px;
+                border: 2px solid var(--primary);
             }
 
             .layer-label {
-                font-size: 0.7rem;
-                margin-bottom: 4px;
+                font-size: 0.85rem;
+                margin-bottom: 8px;
+            }
+
+            .neuron {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                min-height: 40px;
+                margin: 2px;
+            }
+
+            .skill-name {
+                font-size: 0.5rem;
             }
 
             .synapses {
-                display: block;
+                display: none;
             }
 
-            .neural-layer.input-layer {
-                left: -2%;
-                width: 24%;
-            }
-
-            .neural-layer.hidden-layer-1 {
-                left: 26%;
-                width: 24%;
-            }
-
-            .neural-layer.hidden-layer-2 {
-                left: 54%;
-                width: 24%;
-            }
-
-            .neural-layer.output-layer {
-                left: 82%;
-                width: 24%;
+            .neurons-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+                width: 100%;
             }
         }
 
@@ -849,58 +809,50 @@
             }
 
             .neural-network {
-                max-height: 1200px;
-                overflow-x: auto;
-                overflow-y: visible;
-                transform: scale(0.4);
-                transform-origin: center;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                padding: 4px;
             }
 
             .neural-layer {
-                position: absolute !important;
-                height: 100%;
-                padding: 4px 0;
-            }
-
-            .neuron {
-                width: 25px;
-                height: 25px;
-                min-width: 25px;
-                min-height: 25px;
-                margin: 1px;
-            }
-
-            .skill-name {
-                font-size: 0.35rem;
+                position: relative !important;
+                width: 100% !important;
+                left: 0 !important;
+                height: auto;
+                padding: 6px;
+                background: rgba(52, 152, 219, 0.1);
+                border-radius: 6px;
+                border: 2px solid var(--primary);
             }
 
             .layer-label {
-                font-size: 0.65rem;
-                margin-bottom: 3px;
+                font-size: 0.8rem;
+                margin-bottom: 6px;
+            }
+
+            .neuron {
+                width: 35px;
+                height: 35px;
+                min-width: 35px;
+                min-height: 35px;
+                margin: 2px;
+            }
+
+            .skill-name {
+                font-size: 0.45rem;
             }
 
             .synapses {
-                display: block;
+                display: none;
             }
 
-            .neural-layer.input-layer {
-                left: -3%;
-                width: 26%;
-            }
-
-            .neural-layer.hidden-layer-1 {
-                left: 27%;
-                width: 26%;
-            }
-
-            .neural-layer.hidden-layer-2 {
-                left: 57%;
-                width: 26%;
-            }
-
-            .neural-layer.output-layer {
-                left: 87%;
-                width: 26%;
+            .neurons-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 4px;
+                width: 100%;
             }
         }
 
@@ -911,58 +863,50 @@
             }
 
             .neural-network {
-                max-height: 1300px;
-                overflow-x: auto;
-                overflow-y: visible;
-                transform: scale(0.35);
-                transform-origin: center;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                padding: 3px;
             }
 
             .neural-layer {
-                position: absolute !important;
-                height: 100%;
-                padding: 3px 0;
-            }
-
-            .neuron {
-                width: 22px;
-                height: 22px;
-                min-width: 22px;
-                min-height: 22px;
-                margin: 0.5px;
-            }
-
-            .skill-name {
-                font-size: 0.3rem;
+                position: relative !important;
+                width: 100% !important;
+                left: 0 !important;
+                height: auto;
+                padding: 5px;
+                background: rgba(52, 152, 219, 0.1);
+                border-radius: 5px;
+                border: 2px solid var(--primary);
             }
 
             .layer-label {
-                font-size: 0.6rem;
-                margin-bottom: 2px;
+                font-size: 0.75rem;
+                margin-bottom: 5px;
+            }
+
+            .neuron {
+                width: 30px;
+                height: 30px;
+                min-width: 30px;
+                min-height: 30px;
+                margin: 1px;
+            }
+
+            .skill-name {
+                font-size: 0.4rem;
             }
 
             .synapses {
-                display: block;
+                display: none;
             }
 
-            .neural-layer.input-layer {
-                left: -4%;
-                width: 28%;
-            }
-
-            .neural-layer.hidden-layer-1 {
-                left: 28%;
-                width: 28%;
-            }
-
-            .neural-layer.hidden-layer-2 {
-                left: 60%;
-                width: 28%;
-            }
-
-            .neural-layer.output-layer {
-                left: 92%;
-                width: 28%;
+            .neurons-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 3px;
+                width: 100%;
             }
         }
 
