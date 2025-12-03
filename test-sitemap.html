@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sitemap Test</title>
+    <script>
+        window.onload = function() {
+            fetch('sitemap.xml')
+                .then(response => {
+                    document.getElementById('status').innerHTML += `Status: ${response.status} ${response.statusText}<br>`;
+                    document.getElementById('status').innerHTML += `Content-Type: ${response.headers.get('content-type')}<br>`;
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('content').textContent = data;
+                })
+                .catch(error => {
+                    document.getElementById('status').innerHTML += `Error: ${error}<br>`;
+                });
+        };
+    </script>
+</head>
+<body>
+    <h1>Sitemap Test</h1>
+    <div id="status"></div>
+    <pre id="content"></pre>
+</body>
+</html>
