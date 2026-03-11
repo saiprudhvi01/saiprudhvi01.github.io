@@ -1,0 +1,141 @@
+.experience {
+    position: relative;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+}
+
+.timeline-item {
+    width: 100%;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary);
+    z-index: 2;
+}
+
+.timeline-content {
+    width: 45%;
+    padding: 2rem;
+    border-radius: 20px;
+    position: relative;
+}
+
+.exp-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.exp-role h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.exp-role h4 {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.exp-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.exp-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.exp-desc {
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.exp-tasks {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.exp-tasks li {
+    margin-bottom: 0.5rem;
+}
+
+.exp-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-badge {
+    background-color: var(--border-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-dot {
+        left: 20px;
+    }
+
+    .timeline-item {
+        justify-content: flex-start;
+        margin-bottom: 2rem;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: row;
+    }
+
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+    }
+
+    .exp-meta {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+}
