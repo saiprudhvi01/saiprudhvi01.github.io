@@ -5,4 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
     plugins: [react()],
     base: '/saiprudhvi01.github.io/',
+    // Updated for GitHub Pages deployment
 })
