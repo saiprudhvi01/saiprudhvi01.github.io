@@ -1,0 +1,44 @@
+:root {
+  --primary: #00F5A0;
+  --bg-main: #101815;
+  --bg-card: #151D19;
+  --bg-active: #0F2920;
+  --border: #153D30;
+  --text-primary: #F5F7F6;
+  --text-secondary: #98A59F;
+  --primary-dark: #00C080;
+  --accent: #00F5A0;
+  --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --font-main: 'Poppins', system-ui, -apple-system, sans-serif;
+  --bg-color: #101815;
+  --bg-secondary: #151D19;
+  --text-color: #F5F7F6;
+}
+
+[data-theme='light'] {
+  --bg-color: #F5F7F6;
+  --bg-secondary: #E8EBEA;
+  --text-color: #101815;
+  --text-secondary: #5A665F;
+  --border-color: rgba(21, 61, 48, 0.3);
+  --glass-bg: rgba(245, 247, 246, 0.85);
+  --glass-border: rgba(0, 245, 160, 0.3);
+  --shadow: 0 20px 46px rgba(16, 24, 21, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  --grid-line: rgba(0, 245, 160, 0.15);
+  --glow-primary: rgba(0, 245, 160, 0.4);
+  --glow-accent: rgba(0, 245, 160, 0.35);
+}
+
+[data-theme='dark'] {
+  --bg-color: #101815;
+  --bg-secondary: #151D19;
+  --text-color: #F5F7F6;
+  --text-secondary: #98A59F;
+  --border-color: rgba(21, 61, 48, 0.3);
+  --glass-bg: rgba(21, 29, 25, 0.88);
+  --glass-border: rgba(0, 245, 160, 0.25);
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+  --grid-line: rgba(0, 245, 160, 0.1);
+  --glow-primary: rgba(0, 245, 160, 0.4);
+  --glow-accent: rgba(0, 245, 160, 0.35);
+}
